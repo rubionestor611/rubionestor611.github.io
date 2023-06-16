@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/static/css/main.8c27f2c7.css",
-    "main.js": "/static/js/main.dd310605.js",
+    "main.js": "/static/js/main.d24031ca.js",
     "static/media/grad.jpg": "/static/media/grad.d5e1d8b2bf33242838f0.jpg",
-    "static/media/RubioNestorResume.pdf": "/static/media/RubioNestorResume.77c85e2b1a9c9e4d20df.pdf",
     "static/media/Audio.png": "/static/media/Audio.ecdd20a5f2a02430d11c.png",
     "static/media/portrait.png": "/static/media/portrait.81b402fd99b757dbb4ff.png",
     "static/media/ReactToDoThumbnail.png": "/static/media/ReactToDoThumbnail.c2b8c076ae5f69439498.png",
+    "static/media/RubioNestorResume.pdf": "/static/media/RubioNestorResume.d36b954fc757103b0a7d.pdf",
     "static/media/PasswordManagerThumbnail.png": "/static/media/PasswordManagerThumbnail.5e08ea31fb7aef339fc4.png",
     "static/media/invoicesthumbnail.JPG": "/static/media/invoicesthumbnail.b31b8cdc78149f7f6bf6.JPG",
     "index.html": "/index.html",
     "main.8c27f2c7.css.map": "/static/css/main.8c27f2c7.css.map",
-    "main.dd310605.js.map": "/static/js/main.dd310605.js.map"
+    "main.d24031ca.js.map": "/static/js/main.d24031ca.js.map"
   },
   "entrypoints": [
     "static/css/main.8c27f2c7.css",
-    "static/js/main.dd310605.js"
+    "static/js/main.d24031ca.js"
   ]
 }
