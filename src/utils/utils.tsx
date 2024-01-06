@@ -5,3 +5,5 @@ export const navLinks = [
   ['Experience','#experience'],
   ['Contact','#contact']
 ];
+
+export const words = [" ", "Curious", "Hard-Working", "Front-End", "Back-End", "Full-Stack"];

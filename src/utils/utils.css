@@ -1,0 +1,42 @@
+.word {
+  display: block;
+  align-self: center;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.word span {
+  color: #3860D0;
+  position: relative;
+}
+
+.word span::after {
+  content: '';
+  width: 8px;
+  height: 100%;
+  background: #3860D0;
+  display: block;
+  position: absolute;
+  right: -10px;
+  top: 0;
+  animation: blink 0.5s ease infinite alternate-reverse;
+}
+
+@keyframes blink {
+  from {
+    opacity: 100%;
+  }
+
+  to {
+    opacity: 0%;
+  }
+}
+
+.word.empty {
+  visibility: hidden;
+}
+
+.word.empty span::after {
+  visibility: visible;
+  right: 0;
+}
