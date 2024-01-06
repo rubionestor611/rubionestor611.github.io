@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import lightLogo from "../assets/lightLogo.png";
 import darkLogo from "../assets/darkLogo.png";
 import { useTheme } from "./ThemeContext";
+import { navLinks } from "../utils/utils";
 
 const Header = () => {
   const {isDarkMode, toggleTheme} = useTheme();
@@ -14,14 +15,6 @@ const Header = () => {
   const activeClass = (link: string) => {
     return section == link ? 'underline font-bold' : 'hover:underline hover:decoration-dashed';
   }
-
-  const navLinks = [
-    ['Home','#home'],
-    ['Skills','#skills'],
-    ['About Me', '#about'],
-    ['Experience','#experience'],
-    ['Contact','#contact']
-  ];
 
   return (
     <header className={`${isDarkMode ? 'dark':''} header h-[80px] ${isMenuOpen ? 'header-open' : ''}`}>
@@ -83,7 +76,7 @@ const Header = () => {
           </ul>
         </nav>
       </div>
-        <nav className={`absolute md:hidden w-screen h-screen bg-lightBG2 dark:bg-darkBG2 transform transition-transform duration-300 ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <nav className={`absolute md:hidden h-screen bg-lightBG2 dark:bg-darkBG2 transform transition-transform duration-300 ${isMenuOpen ? 'translate-x-0 w-screen' : 'translate-x-full w-0'} z-10`}>
           <ul className="flex flex-col items-end pr-[50px] pt-[100px] space-y-4">
           {
             navLinks.map((titleLink,index) => (
