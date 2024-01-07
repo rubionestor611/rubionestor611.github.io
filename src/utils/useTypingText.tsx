@@ -1,5 +1,5 @@
 
-import React, {useState, useEffect, useRef} from "react";
+import {useState, useEffect, useRef} from "react";
 import "./utils.css"
 const FORWARD = 'forward';
 const BACKWARD = 'backward';

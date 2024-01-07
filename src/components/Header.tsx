@@ -30,6 +30,7 @@ const Header = () => {
             type="checkbox"
             role="switch"
             onClick={toggleTheme}
+            checked={isDarkMode}
           />
         </div>
         <div className="menu-toggle md:hidden" onClick={toggleMenu}>

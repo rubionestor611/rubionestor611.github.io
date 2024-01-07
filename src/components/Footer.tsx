@@ -15,8 +15,8 @@ const Footer = () => {
         {/* LINKS */}
         <ul className="flex flex-row justify-center flex-wrap space-x-20">
           {
-            navLinks.map(titleLink => (
-              <li><a href={titleLink[1]} className="text-lightText dark:text-darkText">{titleLink[0]}</a></li>
+            navLinks.map((titleLink, index) => (
+              <li key={`${index}`}><a href={titleLink[1]} className="text-lightText dark:text-darkText">{titleLink[0]}</a></li>
             ))
           }
         </ul>

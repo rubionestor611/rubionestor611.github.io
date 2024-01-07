@@ -8,10 +8,12 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider = ({ children }: any) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(localStorage.getItem('isDarkMode') == 'y');
 
   const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
+    const newVal = !isDarkMode;
+    setIsDarkMode(newVal);
+    localStorage.setItem('isDarkMode', newVal ? 'y' : 'n');
   };
 
   const theme = {
