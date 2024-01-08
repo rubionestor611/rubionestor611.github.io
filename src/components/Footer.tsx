@@ -22,8 +22,8 @@ const Footer = () => {
         </ul>
         {/* HYPERLINKS */}
         <div className="flex flex-row justify-center space-x-20 text-[30px]">
-          <a href="https://github.com/rubionestor611" target="_blank" className="text-primary"><FontAwesomeIcon icon={faGithub}/></a>
-          <a href="https://www.linkedin.com/in/rubio-nestor" target="_blank" className="text-primary"><FontAwesomeIcon icon={faLinkedin}/></a>
+          <a href="https://github.com/rubionestor611" target="_blank" className="text-primary hover:text-lightAccent dark:hover:text-darkAccent hover:scale-125"><FontAwesomeIcon icon={faGithub}/></a>
+          <a href="https://www.linkedin.com/in/rubio-nestor" target="_blank" className="text-primary hover:text-lightAccent dark:hover:text-darkAccent hover:scale-125"><FontAwesomeIcon icon={faLinkedin}/></a>
         </div>
       </div>
     </div>

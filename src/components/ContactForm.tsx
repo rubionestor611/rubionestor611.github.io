@@ -61,8 +61,8 @@ const ContactForm = () => {
             placeholder="Your message to me"
           />
         </div>
-        <div className="flex flex-col justify-center">
-          <button className="bg-primary w-[290px] h-[50px] rounded self-center text-lightBG1 dark:text-darkBG1 font-bold">Send</button>
+        <div className="flex flex-col justify-center gap-[10px]">
+          <button className="bg-primary w-[290px] h-[50px] rounded self-center text-lightBG1 dark:text-darkBG1 font-bold transition-colors duration-300 ease-in-out hover:bg-lightAccent dark:hover:bg-darkAccent">Send</button>
           <button
             className="text-lighttext dark:text-darkText"
             onClick={clear}

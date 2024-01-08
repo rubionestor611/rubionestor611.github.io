@@ -18,14 +18,14 @@ const Home = () => {
   },[text])
 
   return (
-    <div className={`${isDarkMode ? 'dark':''} flex flex-col justify-center`}>
+    <div id="home" className={`${isDarkMode ? 'dark':''} flex flex-col justify-center`}>
       <div className=" bg-lightBG1 dark:bg-darkBG1 justify-center flex flex-col">
         {/* IMAGE */}
         <img src={selfie} className="self-center rounded-full h-[200px] w-[200px] bg-lightAccent dark:bg-darkAccent my-4 object-contain"/>
         {/* ISLAND */}
         <div className="bg-lightBG2 dark:bg-darkBG2 rounded-full border-black dark:border-white border-2 self-center w-[90%] flex flex-row justify-evenly text-primary text-[30px] py-[5px] mb-4">
-        <a href="https://github.com/rubionestor611" target="_blank" className="text-primary"><FontAwesomeIcon icon={faGithub}/></a>
-          <a href="https://www.linkedin.com/in/rubio-nestor" target="_blank" className="text-primary"><FontAwesomeIcon icon={faLinkedin}/></a>
+          <a href="https://github.com/rubionestor611" target="_blank" className="text-primary hover:text-lightAccent dark:hover:text-darkAccent hover:scale-125"><FontAwesomeIcon icon={faGithub}/></a>
+          <a href="https://www.linkedin.com/in/rubio-nestor" target="_blank" className="text-primary hover:text-lightAccent dark:hover:text-darkAccent hover:scale-125"><FontAwesomeIcon icon={faLinkedin}/></a>
         </div>
         {/* TEXT */}
         <div className="flex flex-col justify-center pb-4">
@@ -38,9 +38,9 @@ const Home = () => {
         {/* RESUMES */}
         <div className="rounded bg-lightBG2 dark:bg-darkBG2 flex flex-col justify-center py-[24px]">
           <p className="self-center text-[24px] font-bold text-lightText dark:text-darkText mb-[24px]">Résumé Options</p>
-          <button className="bg-primary w-[290px] h-[50px] rounded self-center text-lightBG1 dark:text-darkBG1 font-bold">PDF</button>
+          <button className="bg-primary w-[290px] h-[50px] rounded self-center text-lightBG1 dark:text-darkBG1 font-bold transition-colors duration-300 ease-in-out hover:bg-lightAccent dark:hover:bg-darkAccent">PDF</button>
           <p className="self-center text-[20px] text-lightText dark:text-darkText">and</p>
-          <button className="bg-primary w-[290px] h-[50px] rounded self-center text-lightBG1 dark:text-darkBG1 font-bold">HTML / CSS</button>
+          <button className="bg-primary w-[290px] h-[50px] rounded self-center text-lightBG1 dark:text-darkBG1 font-bold transition-colors duration-300 ease-in-out hover:bg-lightAccent dark:hover:bg-darkAccent">HTML / CSS</button>
         </div>
       </div>
     </div>
