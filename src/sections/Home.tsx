@@ -5,6 +5,7 @@ import { words } from "../utils/utils";
 import selfie from "../assets/selfie.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import Resume from "../assets/RubioNestorResume.pdf";
 const Home = () => {
   const {isDarkMode} = useTheme();
   const {word, stop, text} = useTypingText(words,130,20)
@@ -38,9 +39,9 @@ const Home = () => {
         {/* RESUMES */}
         <div className="rounded bg-lightBG2 dark:bg-darkBG2 flex flex-col justify-center py-[24px]">
           <p className="self-center text-[24px] font-bold text-lightText dark:text-darkText mb-[24px]">Résumé Options</p>
-          <button className="bg-primary w-[290px] h-[50px] rounded self-center text-lightBG1 dark:text-darkBG1 font-bold transition-colors duration-300 ease-in-out hover:bg-lightAccent dark:hover:bg-darkAccent">PDF</button>
+          <a href={Resume} download={"RubioNestorResume"} target="_blank" className="flex flex-col justify-center text-center bg-primary w-[290px] h-[50px] rounded self-center text-lightBG1 dark:text-darkBG1 font-bold transition-colors duration-300 ease-in-out hover:bg-lightAccent dark:hover:bg-darkAccent">PDF</a>
           <p className="self-center text-[20px] text-lightText dark:text-darkText">and</p>
-          <button className="bg-primary w-[290px] h-[50px] rounded self-center text-lightBG1 dark:text-darkBG1 font-bold transition-colors duration-300 ease-in-out hover:bg-lightAccent dark:hover:bg-darkAccent">HTML / CSS</button>
+          <a href="https://rubionestorresume.azureedge.net/" target="_blank" className="flex flex-col justify-center text-center bg-primary w-[290px] h-[50px] rounded self-center text-lightBG1 dark:text-darkBG1 font-bold transition-colors duration-300 ease-in-out hover:bg-lightAccent dark:hover:bg-darkAccent">HTML / CSS</a>
         </div>
       </div>
     </div>
