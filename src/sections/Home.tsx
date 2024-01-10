@@ -20,7 +20,7 @@ const Home = () => {
 
   return (
     <div id="home" className={`${isDarkMode ? 'dark':''} flex flex-col justify-center`}>
-      <div className=" bg-lightBG1 dark:bg-darkBG1 justify-center flex flex-col">
+      <div className=" bg-lightBG1 dark:bg-darkBG1 justify-center flex flex-col pt-[80px]">
         {/* IMAGE */}
         <img src={selfie} className="self-center rounded-full h-[200px] w-[200px] bg-lightAccent dark:bg-darkAccent my-4 object-contain"/>
         {/* ISLAND */}

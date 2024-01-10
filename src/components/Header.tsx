@@ -17,7 +17,7 @@ const Header = () => {
   }
 
   return (
-    <header className={`${isDarkMode ? 'dark':''} header h-[80px] ${isMenuOpen ? 'header-open' : ''}`}>
+    <header className={`${isDarkMode ? 'dark':''} fixed top-0 z-50 header h-[80px] w-screen ${isMenuOpen ? 'header-open' : ''}`}>
       <div className="flex h-[80px] justify-between items-center px-4 bg-lightBG2 dark:bg-darkBG2">
         {/* LOGO */}
         <div className="logo ">
@@ -77,16 +77,16 @@ const Header = () => {
           </ul>
         </nav>
       </div>
-        <nav className={`absolute md:hidden h-screen bg-lightBG2 dark:bg-darkBG2 transform transition-transform duration-300 ${isMenuOpen ? 'translate-x-0 w-screen' : 'translate-x-full w-0'} z-10`}>
-          <ul className="flex flex-col items-end pr-[50px] pt-[100px] space-y-4">
-          {
-            navLinks.map((titleLink,index) => (
-              <li key={`${index}`}><a href={titleLink[1]} className="cursor-pointer text-2xl text-lightText dark:text-darkText" onClick={toggleMenu}>{titleLink[0]}</a></li>
-            ))
-          }
-          <li><a href="https://firstgencs.com" target="_blank" className="cursor-pointer text-2xl text-lightText dark:text-darkText">Blog</a></li>
-          </ul>
-        </nav>
+      <nav className={`absolute md:hidden h-screen bg-lightBG2 dark:bg-darkBG2 transform transition-transform duration-300 ${isMenuOpen ? 'translate-x-0 w-screen' : 'translate-x-full w-0'} z-50`}>
+        <ul className="flex flex-col items-end pr-[50px] pt-[100px] space-y-4">
+        {
+          navLinks.map((titleLink,index) => (
+            <li key={`${index}`}><a href={titleLink[1]} className="cursor-pointer text-2xl text-lightText dark:text-darkText" onClick={toggleMenu}>{titleLink[0]}</a></li>
+          ))
+        }
+        <li><a href="https://firstgencs.com" target="_blank" className="cursor-pointer text-2xl text-lightText dark:text-darkText">Blog</a></li>
+        </ul>
+      </nav>
     </header>
   )
 }

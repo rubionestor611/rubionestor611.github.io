@@ -12,7 +12,7 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div>
+      <div className='app'>
         <Header/>
         <Home/>
         <Skills/>
