@@ -13,12 +13,13 @@ const Footer = () => {
         {/* LOGO */}
         <a href="#home" className="flex flex-row justify-center"><img src={isDarkMode ? darkLogo : lightLogo} alt="Logo" className="h-8 self-center"/></a>
         {/* LINKS */}
-        <ul className="flex flex-row justify-center flex-wrap space-x-20">
+        <ul className="flex flex-row justify-center flex-wrap px-[15px]">
           {
             navLinks.map((titleLink, index) => (
-              <li key={`${index}`}><a href={titleLink[1]} className="text-lightText dark:text-darkText">{titleLink[0]}</a></li>
+              <li key={`${index}`}><a href={titleLink[1]} className="text-lightText dark:text-darkText mx-2">{titleLink[0]}</a></li>
             ))
           }
+          <li><a href="https://firstgencs.com" target="_blank" className="text-lightText dark:text-darkText mx-2">Blog</a></li>
         </ul>
         {/* HYPERLINKS */}
         <div className="flex flex-row justify-center space-x-20 text-[30px]">

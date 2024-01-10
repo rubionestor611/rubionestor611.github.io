@@ -30,7 +30,7 @@ const ExpItem = (
     techUsed: string[]
   }) => {
     return (
-      <div className="flex flex-row space-x-[25px] w-[90%] relative self-center">
+      <div className="opacity-75 hover:opacity-100  flex flex-row space-x-[25px] w-[90%] relative self-center">
         <div className="absolute h-full border-l border-lightText dark:border-darkText rounded"/>
         <div>
           <p className="text-xs text-lightText dark:text-darkText italic">{exp.dateRange}</p>

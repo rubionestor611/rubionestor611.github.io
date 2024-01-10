@@ -27,6 +27,8 @@ import JenkinsLogo from "../assets/tech/jenkins.png";
 import GitLogo from "../assets/tech/git.svg";
 import GitlabLogo from "../assets/tech/gitlabLogo.svg";
 import GithubLogo from "../assets/tech/githubLogo.png";
+import ViteLogo from "../assets/tech/vite.svg";
+import { faDumbbell, faGraduationCap, faMousePointer, faSmileBeam } from "@fortawesome/free-solid-svg-icons";
 
 export const navLinks = [
   ['Home','#home'],
@@ -36,7 +38,7 @@ export const navLinks = [
   ['Contact','#contact']
 ];
 
-export const words = [" ", "Curious", "Hard-Working", "Front-End", "Back-End", "Full-Stack"];
+export const words = [" ", "Curious", "Hard-Working", "First-Gen", "Front-End", "Back-End", "Full-Stack"];
 
 export const skills = {
   languages: [
@@ -52,6 +54,7 @@ export const skills = {
     {name:"TypeScript",logo:TypeScriptLogo},
     {name:"Tailwind CSS",logo:TailwindLogo},
     {name:"Redux Toolkit",logo:ReduxLogo},
+    {name:"Vite",logo:ViteLogo},
     {name:"ExpressJS",logo:ExpressLogo},
     {name:"NodeJS",logo:NodeLogo},
     {name:"HTML",logo:HTMLLogo},
@@ -71,6 +74,27 @@ export const skills = {
     {name:"Golang Testify",logo:TestifyLogo},
     {name:"JUnit",logo:JUnitLogo},
   ]
+}
+
+export const aboutMe = {
+  cards: [
+    {
+      logo: faGraduationCap,
+      text: "I graduated cum laude honors from the University of Central Florida in May 2023. I am thankful to have been able to help fellow knights through my tutoring while there. GO KNIGHTS!"
+    },
+    {
+      logo: faDumbbell,
+      text: "I love being able to exercise. For me this mostly means soccer and doing at-home workouts with my adjustable dumbbell set, cables, or my bodyweight."
+    },
+    {
+      logo: faSmileBeam,
+      text: "I love to make people feel included, welcome, involved, and cared for. Whether it be through humor, genuine curiosity in them, or whatever else I feel may help improve their day."
+    },
+    {
+      logo: faMousePointer,
+      text: "I run a blog called First Gen CS in which I write about different topics like data structures and algorithms and I hope to extend it to miscellaneous topics in the future. You can visit it through the links in the menu and footer."
+    }
+  ],
 }
 
 export const experiences = [
