@@ -21,7 +21,7 @@ const Header = () => {
       <div className="flex h-[80px] justify-between items-center px-4 bg-lightBG2 dark:bg-darkBG2">
         {/* LOGO */}
         <div className="logo ">
-          <a href="#home" onClick={() => {setIsMenuOpen(false); setSection('#home')}}><img src={isDarkMode ? darkLogo : lightLogo} alt="Logo" className="h-8"/></a>
+          <a href="#home" onClick={() => {setIsMenuOpen(false); setSection('#home')}}><img src={isDarkMode ? darkLogo : lightLogo} alt="Logo" className="h-8 cursor-pointer"/></a>
         </div>
         {/* TOGGLE */}
         <div>
@@ -33,7 +33,7 @@ const Header = () => {
             checked={isDarkMode}
           />
         </div>
-        <div className="menu-toggle md:hidden text-lightText dark:text-darkText" onClick={toggleMenu}>
+        <div className="menu-toggle md:hidden text-lightText dark:text-darkText cursor-pointer" onClick={toggleMenu}>
           {!isMenuOpen ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +73,7 @@ const Header = () => {
                 <li key={`${index}`}><a href={titleLink[1]} onClick={() => setSection(titleLink[1])} className={`cursor-pointer text-lightText dark:text-darkText ${activeClass(titleLink[1])}`}>{titleLink[0]}</a></li>
               ))
             }
-            <li><a href="https://firstgencs.com" target="_blank" className="bg-primary py-1 px-3 rounded-full text-lightBG1 dark:text-darkBG1">Blog</a></li>
+            <li><a href="https://firstgencs.com" target="_blank" className="bg-primary py-1 px-3 rounded-full text-lightBG1 dark:text-darkBG1 cursor-pointer">Blog</a></li>
           </ul>
         </nav>
       </div>

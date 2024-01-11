@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      cursor: {
+        default: 'url(/src/assets/cursors/defaultCursor.svg), default',
+        pointer: 'url(/src/assets/cursors/pointer.svg), pointer'
+      },
       animation: {
         shine: "shine 1s",
       },

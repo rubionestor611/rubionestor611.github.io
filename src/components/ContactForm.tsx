@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useTheme } from "../components/ThemeContext";
 
 const labelClassName = "text-lightText dark:text-darkText text-[15px]"
-const inputClassName = "bg-transparent border border-lightText dark:border-darkText text-lightText dark:text-darkText rounded px-2 focus:border-primary focus:border-2 focus:outline-none"
+const inputClassName = "bg-transparent border border-lightText dark:border-darkText text-lightText dark:text-darkText rounded px-2 focus:border-primary focus:border-2 focus:outline-none cursor-pointer"
 
 const ContactForm = () => {
   const {isDarkMode} = useTheme();
@@ -62,9 +62,9 @@ const ContactForm = () => {
           />
         </div>
         <div className="flex flex-col justify-center gap-[10px]">
-          <button className="bg-primary w-[290px] h-[50px] rounded self-center text-lightBG1 dark:text-darkBG1 font-bold transition-colors duration-300 ease-in-out hover:bg-lightAccent dark:hover:bg-darkAccent">Send</button>
+          <button className="bg-primary w-[290px] h-[50px] rounded self-center text-lightBG1 dark:text-darkBG1 font-bold transition-colors duration-300 ease-in-out hover:bg-lightAccent dark:hover:bg-darkAccent cursor-pointer">Send</button>
           <button
-            className="text-lighttext dark:text-darkText"
+            className="w-fit self-center text-lightText dark:text-darkText cursor-pointer"
             onClick={clear}
           >
             Clear

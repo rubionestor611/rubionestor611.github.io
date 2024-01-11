@@ -12,7 +12,7 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className='app'>
+      <div className='app cursor-default'>
         <Header/>
         <Home/>
         <Skills/>
