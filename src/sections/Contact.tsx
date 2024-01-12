@@ -12,12 +12,14 @@ const Contact = () => {
         <div className="py-[20px] w-[90%] rounded self-center bg-lightAccent dark:bg-darkAccent text-[14px] text-lightText dark:text-darkText text-center">
           <p>I will gladly respond to any questions you may have and am always open to feedback!</p>
         </div>
-        <div className="flex flex-row justify-evenly text-[50px] text-primary">
-          <a target="_blank" href="https://github.com/rubionestor611" className="hover:text-lightAccent dark:hover:text-darkAccent hover:scale-125 cursor-pointer"><FontAwesomeIcon icon={faGithub}/></a>
-          <a target="_blank" href="https://www.linkedin.com/in/rubio-nestor" className="hover:text-lightAccent dark:hover:text-darkAccent hover:scale-125 cursor-pointer"><FontAwesomeIcon icon={faLinkedin} /></a>
-          <a target="_blank" href="mailto:nestordrubio9@gmail.com" className="hover:text-lightAccent dark:hover:text-darkAccent hover:scale-125 cursor-pointer"><FontAwesomeIcon icon={faGoogle}/></a>
+        <div className="flex flex-col justify-center gap-[24px] sm:flex-row sm:w-[90%] sm:self-center sm:justify-start sm:gap-[20px]">
+          <div className="flex flex-row justify-evenly text-[50px] text-primary sm:flex-col">
+            <a target="_blank" href="https://github.com/rubionestor611" className="hover:text-lightAccent dark:hover:text-darkAccent hover:scale-125 cursor-pointer"><FontAwesomeIcon icon={faGithub}/></a>
+            <a target="_blank" href="https://www.linkedin.com/in/rubio-nestor" className="hover:text-lightAccent dark:hover:text-darkAccent hover:scale-125 cursor-pointer"><FontAwesomeIcon icon={faLinkedin} /></a>
+            <a target="_blank" href="mailto:nestordrubio9@gmail.com" className="hover:text-lightAccent dark:hover:text-darkAccent hover:scale-125 cursor-pointer"><FontAwesomeIcon icon={faGoogle}/></a>
+          </div>
+          <ContactForm />
         </div>
-        <ContactForm />
       </div> 
     </div>
   )

@@ -9,8 +9,8 @@ const Experience = () => {
         <p className="self-center text-lightText dark:text-darkText text-[24px] font-bold mb-[24px]">Dev Experience</p>
         <div className="flex flex-col justify-center self-center gap-2">
         {
-          experiences.map(item => (
-            ExpItem(item)
+          experiences.map((item,index) => (
+            ExpItem(item,index)
           ))
         }
         </div>
@@ -28,9 +28,11 @@ const ExpItem = (
     dateRange: string
     description: string[]
     techUsed: string[]
-  }) => {
+  },
+  index:number
+  ) => {
     return (
-      <div className="opacity-75 hover:opacity-100  flex flex-row space-x-[25px] w-[90%] relative self-center">
+      <div key={`${index}`} className="lg:opacity-75 lg:hover:opacity-100  flex flex-row space-x-[25px] w-[90%] relative self-center">
         <div className="absolute h-full border-l border-lightText dark:border-darkText rounded"/>
         <div>
           <p className="text-xs text-lightText dark:text-darkText italic">{exp.dateRange}</p>
@@ -39,15 +41,15 @@ const ExpItem = (
           <p className="text-sm text-lightText dark:text-darkText italic">{exp.location}</p>
           <ul className="list-disc mt-2">
             {
-              exp.description.map(str => (
-                <li className="text-xs text-lightText dark:text-darkText">{str}</li>
+              exp.description.map((str,index) => (
+                <li key={`${index}`} className="text-xs text-lightText dark:text-darkText">{str}</li>
               ))
             }
           </ul>
           <div className="flex flex-row space-x-2 flex-wrap mt-2">
           {
-            exp.techUsed.map(str => (
-              <p className="cursor-default text-xs p-2 bg-lightAccent dark:bg-darkAccent rounded-full text-lightText dark:text-darkText mb-2">{str}</p>
+            exp.techUsed.map((str,index) => (
+              <p key={`${index}`} className="cursor-default text-xs p-2 bg-lightAccent dark:bg-darkAccent rounded-full text-lightText dark:text-darkText mb-2">{str}</p>
             ))
           }
           </div>

@@ -20,8 +20,8 @@ const About = () => {
         <p className="self-center text-lightText dark:text-darkText text-[24px] mb-[24px] font-bold">About Me</p>
         <div className="flex flex-row justify-center space-x-2 space-y-2 flex-wrap">
         {
-          aboutMe.cards.map((item) => (
-            AboutMeItem(item)
+          aboutMe.cards.map((item,index) => (
+            AboutMeItem(item,index)
           ))
         }
         </div>
@@ -35,9 +35,9 @@ const About = () => {
   )
 };
 
-const AboutMeItem = ({logo, text}:any) => {
+const AboutMeItem = ({logo, text}:any,index:number) => {
   return (
-     <div className="group h-[250px] w-[250px] [perspective:1000px]">
+     <div key={`${index}`} className="group h-[250px] w-[250px] [perspective:1000px]">
       <div className={`relative h-full w-full rounded-xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]  border border-lightText dark:border-darkText`}>
         <div className="absolute inset-0 flex flex-col justify-center text-primary text-9xl">
           <FontAwesomeIcon icon={logo} />

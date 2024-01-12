@@ -44,66 +44,66 @@ const ContactForm = () => {
   }
 
   return (
-    <div className={`${isDarkMode ? 'dark' : ''}`}>
-  <form
-    id="contactform"
-    className="bg-lightBG1 dark:bg-darkBG1 flex flex-col justify-center gap-[20px]"
-    onSubmit={(e)=>sendEmail(e)}
-  >
-    <p className="self-center text-lightAccent dark:text-darkAccent text-[20px]">Message Me Directly</p>
-    <div className="flex flex-col justify-center w-[80%] self-center">
-      <label htmlFor="name" className={labelClassName}>Full Name</label>
-      <input
-        name="name"
-        value={payload.name}
-        onChange={(event) => handleChange("name", event.currentTarget.value)}
-        className={inputClassName}
-        placeholder="Full Name"
-        onInvalid={(e) => {e.currentTarget.setCustomValidity('Please provide a name')}}
-        onInput={(e) => e.currentTarget.setCustomValidity('')}
-        required
-      />
-      <label htmlFor="email" className={labelClassName}>Email</label>
-      <input
-        name="email"
-        value={payload.email}
-        onChange={(event) => handleChange("email", event.currentTarget.value)}
-        className={inputClassName}
-        placeholder="Email"
-        type="email"
-        onInvalid={(e) => {e.currentTarget.setCustomValidity('Please provide a valid email address')}}
-        onInput={(e) => e.currentTarget.setCustomValidity('')}
-        required
-      />
-      <label htmlFor="message" className={labelClassName}>Message</label>
-      <textarea
-        name="message"
-        value={payload.message}
-        onChange={(event) => handleChange("message", event.currentTarget.value)}
-        className={`${inputClassName} h-[120px] resize-none`}
-        placeholder="Your message to me"
-        onInvalid={(e) => {e.currentTarget.setCustomValidity('Please provide a message')}}
-        onInput={(e) => e.currentTarget.setCustomValidity('')}
-        required
-      />
-    </div>
-    <div className="flex flex-col justify-center gap-[10px]">
-      <button
-        type="submit"
-        className="bg-primary w-[290px] h-[50px] rounded self-center text-lightBG1 dark:text-darkBG1 font-bold transition-colors duration-300 ease-in-out hover:bg-lightAccent dark:hover:bg-darkAccent cursor-pointer"
+    <div className={`${isDarkMode ? 'dark' : ''} sm:flex-1`}>
+      <form
+        id="contactform"
+        className="bg-lightBG1 dark:bg-darkBG1 flex flex-col justify-center gap-[20px] sm:border sm:border-lightText dark:sm:border-darkText sm:rounded-2xl sm:p-[10px] sm:bg-lightBG2 dark:sm:bg-darkBG2"
+        onSubmit={(e)=>sendEmail(e)}
       >
-        Send
-      </button>
-      <button
-        type="button"
-        className="w-fit self-center text-lightText dark:text-darkText cursor-pointer"
-        onClick={clear}
-      >
-        Clear
-      </button>
+        <p className="self-center text-lightAccent dark:text-darkAccent text-[20px]">Message Me Directly</p>
+        <div className="flex flex-col justify-center w-[80%] self-center">
+          <label htmlFor="name" className={labelClassName}>Full Name</label>
+          <input
+            name="name"
+            value={payload.name}
+            onChange={(event) => handleChange("name", event.currentTarget.value)}
+            className={inputClassName}
+            placeholder="Full Name"
+            onInvalid={(e) => {e.currentTarget.setCustomValidity('Please provide a name')}}
+            onInput={(e) => e.currentTarget.setCustomValidity('')}
+            required
+          />
+          <label htmlFor="email" className={labelClassName}>Email</label>
+          <input
+            name="email"
+            value={payload.email}
+            onChange={(event) => handleChange("email", event.currentTarget.value)}
+            className={inputClassName}
+            placeholder="Email"
+            type="email"
+            onInvalid={(e) => {e.currentTarget.setCustomValidity('Please provide a valid email address')}}
+            onInput={(e) => e.currentTarget.setCustomValidity('')}
+            required
+          />
+          <label htmlFor="message" className={labelClassName}>Message</label>
+          <textarea
+            name="message"
+            value={payload.message}
+            onChange={(event) => handleChange("message", event.currentTarget.value)}
+            className={`${inputClassName} h-[120px] resize-none`}
+            placeholder="Your message to me"
+            onInvalid={(e) => {e.currentTarget.setCustomValidity('Please provide a message')}}
+            onInput={(e) => e.currentTarget.setCustomValidity('')}
+            required
+          />
+        </div>
+        <div className="flex flex-col justify-center gap-[10px]">
+          <button
+            type="submit"
+            className="bg-primary w-[290px] h-[50px] rounded self-center text-lightBG1 dark:text-darkBG1 font-bold transition-colors duration-300 ease-in-out hover:bg-lightAccent dark:hover:bg-darkAccent cursor-pointer"
+          >
+            Send
+          </button>
+          <button
+            type="button"
+            className="w-fit self-center text-lightText dark:text-darkText cursor-pointer"
+            onClick={clear}
+          >
+            Clear
+          </button>
+        </div>
+      </form>
     </div>
-  </form>
-</div>
   )
 };
 
