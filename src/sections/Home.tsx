@@ -22,7 +22,7 @@ const  Home = () => {
     <div id="home" className={`${isDarkMode ? 'dark':''} flex flex-col justify-center`}>
       <div className=" bg-lightBG1 dark:bg-darkBG1 justify-center flex flex-col pt-[80px]">
         {/* IMAGE */}
-        <img src={selfie} className="self-center rounded-full h-[200px] w-[200px] bg-lightAccent dark:bg-darkAccent my-4 object-contain cursor-pointer"/>
+        <img src={selfie} className="self-center rounded-2xl h-[200px] w-[200px] bg-lightAccent dark:bg-darkAccent my-4 object-contain cursor-pointer"/>
         {/* ISLAND */}
         <div className="bg-lightBG2 dark:bg-darkBG2 rounded-full border-black dark:border-white border-2 self-center w-[90%] flex flex-row justify-evenly text-primary text-[30px] py-[5px] mb-4">
           <a href="https://github.com/rubionestor611" target="_blank" className="text-primary hover:text-lightAccent dark:hover:text-darkAccent hover:scale-125 cursor-pointer"><FontAwesomeIcon icon={faGithub}/></a>
