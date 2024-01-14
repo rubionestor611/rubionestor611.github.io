@@ -120,9 +120,9 @@ export const experiences = [
     dateRange: "May 2022 - August 2022",
     description: [
       "Leveraged Go, Docker, Jenkins, and Bash scripting in an ambitious initiative to overhaul the Load Balancer as Code repository merge validation, resulting in a notable 45% reduction in the runtime of the verification script",
+      "Embraced a steep learning curve, swiftly mastering previously unfamiliar technologies to achieve impactful improvements in project efficiency and effectiveness",
       "Demonstrated adeptness with Golang's Testify Suite to uphold the quality of code changes, ensuring robust and reliable enhancements to the project",
-      "Championed comprehensive documentation efforts, streamlining project maintenance and ensuring ease of future development and scalability",
-      "Embraced a steep learning curve, swiftly mastering previously unfamiliar technologies to achieve impactful improvements in project efficiency and effectiveness"
+      "Wrote heavy documentation on the CLI tool, improving developer experience and ensuring ease of future development and scalability"
     ],
     techUsed: ["Go","Docker","Jenkins","Gitlab","Cobra CLI"]
   },
@@ -134,8 +134,8 @@ export const experiences = [
     dateRange: "May 2021 - August 2023",
     description: [
       "Hosted extensive tutoring sessions benefiting hundreds of students enrolled in courses covering Object-Oriented Programming w/ Java and Computer Science I w/ C, encompassing topics such as data structures, algorithms, and both object-oriented and procedural programming",
-      "Earned numerous positive reviews in voluntary surveys, reflecting my dedication, empathy, and commitment to aiding students, culminating in top-ranking departmental feedback over multiple semesters",
-      "Promoted to the role of Peer Tutor Mentor in November 2021, enabling me to supervise and offer constructive feedback to fellow tutors, contributing insights to enhance their sessions while reporting observations to the Peer Tutoring Coordinator",
+      "Earned hundreds of positive reviews in voluntary surveys, reflecting my dedication, empathy, and commitment to aiding students, culminating in top-ranking departmental feedback over multiple semesters",
+      "Provided leadership after promotion to Peer Tutor Mentor in November 2021, by supervising and offering constructive feedback to fellow tutors to enhance their sessions while reporting observations to the Peer Tutoring Coordinator",
       "Effectively imparted practical skills extending beyond the academic curriculum, including Git, JUnit Testing, Valgrind Memory Leak testing for C programs, and proficiently navigating technical documentation"
     ],
     techUsed: ["Java","C","Python","WordPress"]

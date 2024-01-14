@@ -32,14 +32,14 @@ const ExpItem = (
   index:number
   ) => {
     return (
-      <div key={`${index}`} className="lg:opacity-75 lg:hover:opacity-100  flex flex-row space-x-[25px] w-[90%] relative self-center">
+      <div key={`${index}`} className="flex flex-row space-x-[25px] w-[90%] relative self-center">
         <div className="absolute h-full border-l border-lightText dark:border-darkText rounded"/>
         <div>
           <p className="text-xs text-lightText dark:text-darkText italic">{exp.dateRange}</p>
           <p className="text-xl text-lightText dark:text-darkText font-bold">{exp.title}</p>
           <p className="text-sm text-lightText dark:text-darkText italic">{exp.company}</p>
           <p className="text-sm text-lightText dark:text-darkText italic">{exp.location}</p>
-          <ul className="list-disc mt-2">
+          <ul className="list-disc list-inside mt-2">
             {
               exp.description.map((str,index) => (
                 <li key={`${index}`} className="text-xs text-lightText dark:text-darkText">{str}</li>
@@ -49,7 +49,7 @@ const ExpItem = (
           <div className="flex flex-row space-x-2 flex-wrap mt-2">
           {
             exp.techUsed.map((str,index) => (
-              <p key={`${index}`} className="cursor-default text-xs p-2 bg-lightAccent dark:bg-darkAccent rounded-full text-lightText dark:text-darkText mb-2">{str}</p>
+              <p key={`${index}`} className="min-w-[50px] text-center cursor-default text-xs p-2 bg-lightAccent dark:bg-darkAccent rounded-full text-lightText dark:text-darkText mb-2">{str}</p>
             ))
           }
           </div>

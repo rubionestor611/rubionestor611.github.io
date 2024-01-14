@@ -3,7 +3,7 @@ import { useTheme } from "../components/ThemeContext";
 import emailjs from '@emailjs/browser';
 
 const labelClassName = "text-lightText dark:text-darkText text-[15px]"
-const inputClassName = "bg-transparent border border-lightText dark:border-darkText text-lightText dark:text-darkText rounded px-2 focus:border-primary focus:border-2 focus:outline-none cursor-pointer"
+const inputClassName = "bg-transparent border border-lightText dark:border-darkText text-lightText dark:text-darkText rounded px-2 focus:border-primary focus:border-2 focus:outline-none cursor-pointer lg:flex-1"
 
 const ContactForm = () => {
   const {isDarkMode} = useTheme();
@@ -52,29 +52,36 @@ const ContactForm = () => {
       >
         <p className="self-center text-lightAccent dark:text-darkAccent text-[20px]">Message Me Directly</p>
         <div className="flex flex-col justify-center w-[80%] self-center">
-          <label htmlFor="name" className={labelClassName}>Full Name</label>
-          <input
-            name="name"
-            value={payload.name}
-            onChange={(event) => handleChange("name", event.currentTarget.value)}
-            className={inputClassName}
-            placeholder="Full Name"
-            onInvalid={(e) => {e.currentTarget.setCustomValidity('Please provide a name')}}
-            onInput={(e) => e.currentTarget.setCustomValidity('')}
-            required
-          />
-          <label htmlFor="email" className={labelClassName}>Email</label>
-          <input
-            name="email"
-            value={payload.email}
-            onChange={(event) => handleChange("email", event.currentTarget.value)}
-            className={inputClassName}
-            placeholder="Email"
-            type="email"
-            onInvalid={(e) => {e.currentTarget.setCustomValidity('Please provide a valid email address')}}
-            onInput={(e) => e.currentTarget.setCustomValidity('')}
-            required
-          />
+          <div className="flex flex-col lg:flex-row lg:justify-between lg:gap-2">
+            <div className="flex flex-col lg:flex-row lg:gap-2 lg:flex-1">
+              <label htmlFor="name" className={labelClassName}>Full Name</label>
+              <input
+                name="name"
+                value={payload.name}
+                onChange={(event) => handleChange("name", event.currentTarget.value)}
+                className={inputClassName}
+                placeholder="Full Name"
+                onInvalid={(e) => {e.currentTarget.setCustomValidity('Please provide a name')}}
+                onInput={(e) => e.currentTarget.setCustomValidity('')}
+                required
+              />
+            </div>
+            <div className="flex flex-col lg:flex-row lg:gap-2 lg:flex-1">
+              <label htmlFor="email" className={labelClassName}>Email</label>
+              <input
+                name="email"
+                value={payload.email}
+                onChange={(event) => handleChange("email", event.currentTarget.value)}
+                className={inputClassName}
+                placeholder="Email"
+                type="email"
+                onInvalid={(e) => {e.currentTarget.setCustomValidity('Please provide a valid email address')}}
+                onInput={(e) => e.currentTarget.setCustomValidity('')}
+                required
+              />
+            </div>
+            
+          </div>
           <label htmlFor="message" className={labelClassName}>Message</label>
           <textarea
             name="message"

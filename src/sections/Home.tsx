@@ -21,25 +21,39 @@ const  Home = () => {
   return (
     <div id="home" className={`${isDarkMode ? 'dark':''} flex flex-col justify-center`}>
       <div className=" bg-lightBG1 dark:bg-darkBG1 justify-center flex flex-col pt-[80px]">
-        {/* IMAGE */}
-        <img src={selfie} className="self-center rounded-2xl h-[200px] w-[200px] bg-lightAccent dark:bg-darkAccent my-4 object-contain cursor-default"/>
-        {/* ISLAND */}
-        <div className="flex flex-row justify-center w-[90%] self-center">
-          <div className="border-t-2 border-lightText dark:border-darkText self-center flex-1 h-0"/>
-          <a href="https://github.com/rubionestor611" target="_blank" className="text-[30px] mx-2 text-primary hover:text-lightAccent dark:hover:text-darkAccent hover:scale-125 cursor-pointer"><FontAwesomeIcon icon={faGithub}/></a>
-          <div className="border-t-2 border-lightText dark:border-darkText self-center flex-1 h-0"/>
-          <a href="https://www.linkedin.com/in/rubio-nestor" target="_blank" className="text-[30px] mx-2 text-primary hover:text-lightAccent dark:hover:text-darkAccent hover:scale-125 cursor-pointer"><FontAwesomeIcon icon={faLinkedin}/></a>
-          <div className="border-t-2 border-lightText dark:border-darkText self-center flex-1 h-0"/>
+        <div className="flex flex-col justify-center sm:flex-row sm:justify-evenly">
+          <div className="flex flex-col justify-center">
+            {/* IMAGE */}
+            <img src={selfie} className="self-center rounded-2xl h-[200px] w-[200px] bg-lightAccent dark:bg-darkAccent my-4 object-contain cursor-default"/>
+            {/* TABLET ISLAND */}
+            <div className="hidden sm:flex md:hidden flex-row justify-center w-[90%] self-center">
+              <div className="border-t-2 border-lightText dark:border-darkText self-center flex-1 h-0"/>
+              <a href="https://github.com/rubionestor611" target="_blank" className="text-[30px] mx-2 text-primary hover:text-lightAccent dark:hover:text-darkAccent hover:scale-125 cursor-pointer"><FontAwesomeIcon icon={faGithub}/></a>
+              <div className="border-t-2 border-lightText dark:border-darkText self-center flex-1 h-0"/>
+              <a href="https://www.linkedin.com/in/rubio-nestor" target="_blank" className="text-[30px] mx-2 text-primary hover:text-lightAccent dark:hover:text-darkAccent hover:scale-125 cursor-pointer"><FontAwesomeIcon icon={faLinkedin}/></a>
+              <div className="border-t-2 border-lightText dark:border-darkText self-center flex-1 h-0"/>
+            </div>
+          </div>
+          
+          {/* MOBILE ISLAND */}
+          <div className="sm:hidden flex flex-row justify-center w-[90%] self-center">
+            <div className="border-t-2 border-lightText dark:border-darkText self-center flex-1 h-0"/>
+            <a href="https://github.com/rubionestor611" target="_blank" className="text-[30px] mx-2 text-primary hover:text-lightAccent dark:hover:text-darkAccent hover:scale-125 cursor-pointer"><FontAwesomeIcon icon={faGithub}/></a>
+            <div className="border-t-2 border-lightText dark:border-darkText self-center flex-1 h-0"/>
+            <a href="https://www.linkedin.com/in/rubio-nestor" target="_blank" className="text-[30px] mx-2 text-primary hover:text-lightAccent dark:hover:text-darkAccent hover:scale-125 cursor-pointer"><FontAwesomeIcon icon={faLinkedin}/></a>
+            <div className="border-t-2 border-lightText dark:border-darkText self-center flex-1 h-0"/>
+          </div>
+          {/* TEXT */}
+          <div className="flex flex-col justify-center pb-4 sm:py-4">
+            <p className={secondaryText}>Howdy! My name is</p>
+            <p className={primaryText}>Nestor Rubio</p>
+            <p className={secondaryText}>and I'm a</p>
+            {word}
+            <p className={primaryText}>Software Engineer</p>
+          </div>
         </div>
-        {/* TEXT */}
-        <div className="flex flex-col justify-center pb-4">
-          <p className={secondaryText}>Howdy! My name is</p>
-          <p className={primaryText}>Nestor Rubio</p>
-          <p className={secondaryText}>and I'm a</p>
-          {word}
-          <p className={primaryText}>Software Engineer</p>
-        </div>
-        {/* RESUMES */}
+        
+        {/* RESUME ROW */}
         <div className="rounded bg-lightBG2 dark:bg-darkBG2 flex flex-col justify-center py-[24px]">
           <p className="self-center text-[24px] font-bold text-lightText dark:text-darkText mb-[24px]">Résumé Options</p>
           <div className="flex flex-col sm:flex-row justify-center sm:gap-4">

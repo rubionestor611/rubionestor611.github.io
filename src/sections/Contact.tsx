@@ -13,10 +13,14 @@ const Contact = () => {
           <p>I will gladly respond to any questions you may have and am always open to feedback!</p>
         </div>
         <div className="flex flex-col justify-center gap-[24px] sm:flex-row sm:w-[90%] sm:self-center sm:justify-start sm:gap-[20px]">
-          <div className="flex flex-row justify-evenly text-[50px] text-primary sm:flex-col">
-            <a target="_blank" href="https://github.com/rubionestor611" className="hover:text-lightAccent dark:hover:text-darkAccent hover:scale-125 cursor-pointer"><FontAwesomeIcon icon={faGithub}/></a>
-            <a target="_blank" href="https://www.linkedin.com/in/rubio-nestor" className="hover:text-lightAccent dark:hover:text-darkAccent hover:scale-125 cursor-pointer"><FontAwesomeIcon icon={faLinkedin} /></a>
-            <a target="_blank" href="mailto:nestordrubio9@gmail.com" className="hover:text-lightAccent dark:hover:text-darkAccent hover:scale-125 cursor-pointer"><FontAwesomeIcon icon={faGoogle}/></a>
+          <div className="flex flex-row justify-evenly text-[50px] text-primary sm:flex-col w-[90%] self-center sm:self-auto sm:w-auto">
+            <div className="border-t-2 border-lightText dark:border-darkText self-center flex-1 h-0 sm:h-full sm:border-t-0 sm:border-r-2"/>
+            <a target="_blank" href="https://github.com/rubionestor611" className="mx-2 sm:mx-0 sm:my-2 hover:text-lightAccent dark:hover:text-darkAccent hover:scale-125 cursor-pointer"><FontAwesomeIcon icon={faGithub}/></a>
+            <div className="border-t-2 border-lightText dark:border-darkText self-center flex-1 h-0 sm:h-full sm:border-t-0 sm:border-r-2"/>
+            <a target="_blank" href="https://www.linkedin.com/in/rubio-nestor" className="mx-2 sm:mx-0 sm:my-2 hover:text-lightAccent dark:hover:text-darkAccent hover:scale-125 cursor-pointer"><FontAwesomeIcon icon={faLinkedin} /></a>
+            <div className="border-t-2 border-lightText dark:border-darkText self-center flex-1 h-0 sm:h-full sm:border-t-0 sm:border-r-2"/>
+            <a target="_blank" href="mailto:nestordrubio9@gmail.com" className="mx-2 sm:mx-0 sm:my-2 hover:text-lightAccent dark:hover:text-darkAccent hover:scale-125 cursor-pointer"><FontAwesomeIcon icon={faGoogle}/></a>
+            <div className="border-t-2 border-lightText dark:border-darkText self-center flex-1 h-0 sm:h-full sm:border-t-0 sm:border-r-2"/>
           </div>
           <ContactForm />
         </div>
