@@ -16,9 +16,9 @@ const About = () => {
 
   return (
     <div id="about" className={`${isDarkMode ? 'dark' : ''} scroll-mt-[90px]`}>
-      <div className="bg-lightBG1 dark:bg-darkBG1 flex flex-col justify-center py-[24px] text-darkText">
+      <div className="bg-lightBG1 dark:bg-darkBG1 flex flex-col justify-center py-[24px] text-darkText px-4">
         <p className="self-center text-lightText dark:text-darkText text-[24px] mb-[24px] font-bold">About Me</p>
-        <div className="flex flex-row justify-center space-x-2 space-y-2 flex-wrap">
+        <div className="flex flex-row justify-evenly space-x-2 gap-y-2 flex-wrap">
         {
           aboutMe.cards.map((item,index) => (
             AboutMeItem(item,index)

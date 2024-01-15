@@ -1,33 +1,38 @@
-import GoLogo from "../assets/tech/Go-Logo_Blue.png";
-import PythonLogo from "../assets/tech/python.png";
-import CLogo from "../assets/tech/c.png";
-import JavaLogo from "../assets/tech/java.png";
-import JavaScriptLogo from "../assets/tech/js.png";
+import GoLogo from "../assets/tech/Go-Logo_Blue.svg";
+import PythonLogo from "../assets/tech/python.svg";
+import CLogo from "../assets/tech/c.svg";
+import JavaLogo from "../assets/tech/java.svg";
+import JavaScriptLogo from "../assets/tech/js.svg";
 import WorldLogo from "../assets/exp/worldwide.png";
 import UCFLogo from "../assets/exp/ucf.png";
 import QualtricsLogo from "../assets/exp/qualtrics.png";
-import HTMLLogo from "../assets/tech/html.png";
-import CSSLogo from "../assets/tech/css.png";
-import ReactLogo from "../assets/tech/react.png";
-import TypeScriptLogo from "../assets/tech/typescript.png";
+import HTMLLogo from "../assets/tech/html.svg";
+import CSSLogo from "../assets/tech/css.svg";
+import ReactLogo from "../assets/tech/react.svg";
+import TypeScriptLogo from "../assets/tech/typescript.svg";
 import TailwindLogo from "../assets/tech/tailwind.svg";
-import ReduxLogo from "../assets/tech/redux.png";
-import ExpressLogo from "../assets/tech/express.png";
-import NodeLogo from "../assets/tech/nodejs.png";
-import JUnitLogo from "../assets/tech/junit.png";
-import TestifyLogo from "../assets/tech/Testify.png";
+import ReduxLogo from "../assets/tech/redux.svg";
+import ExpressLogo from "../assets/tech/express.svg";
+import NodeLogo from "../assets/tech/nodejs.svg";
+import JUnitLogo from "../assets/tech/junit.svg";
+import TestifyLogo from "../assets/tech/Testify.svg";
 import PostmanLogo from "../assets/tech/postman.svg";
-import AzureLogo from "../assets/tech/azure.png";
-import MongoLogo from "../assets/tech/mongodb.png";
-import MySQLLogo from "../assets/tech/mysql.png";
-import FirebaseLogo from "../assets/tech/firebase.png";
-import DockerLogo from "../assets/tech/docker.png";
-import BootstrapLogo from "../assets/tech/bootstrap.png";
-import JenkinsLogo from "../assets/tech/jenkins.png";
+import AzureLogo from "../assets/tech/azure.svg";
+import MongoLogo from "../assets/tech/mongodb.svg";
+import MySQLLogo from "../assets/tech/mysql.svg";
+import FirebaseLogo from "../assets/tech/firebase.svg";
+import DockerLogo from "../assets/tech/docker.svg";
+import BootstrapLogo from "../assets/tech/bootstrap.svg";
+import JenkinsLogo from "../assets/tech/jenkins.svg";
 import GitLogo from "../assets/tech/git.svg";
 import GitlabLogo from "../assets/tech/gitlabLogo.svg";
-import GithubLogo from "../assets/tech/githubLogo.png";
+import GithubLogo from "../assets/tech/githubLogo.svg";
 import ViteLogo from "../assets/tech/vite.svg";
+import selfie from "../assets/selfie.png";
+import grad from "../assets/grad.jpg";
+import armsOut from "../assets/armsOut.jpg";
+import memoji from "../assets/memoji.png";
+
 import { faDumbbell, faGraduationCap, faMousePointer, faSmileBeam } from "@fortawesome/free-solid-svg-icons";
 
 export const navLinks = [
@@ -141,3 +146,8 @@ export const experiences = [
     techUsed: ["Java","C","Python","WordPress"]
   },
 ]
+
+export const selfieImage = {img: selfie, alt: "Selfie of Nestor"};
+export const gradImage = {img:grad,alt:"Picture of Nestor at UCF graduation"};
+export const armsOutImage = {img:armsOut,alt:"Picture of Nestor in graduation cap & gown with arms out"};
+export const memojiImage = {img:memoji,alt:"Nestor's Apple Memoji picture"};
