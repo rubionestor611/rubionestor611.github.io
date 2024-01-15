@@ -5,7 +5,7 @@ const Skills = () => {
   const {isDarkMode} = useTheme();
 
   return (
-    <div id="skills" className={`${isDarkMode ? 'dark' : ''} scroll-mt-[90px]`}>
+    <div id="skills" className={`section ${isDarkMode ? 'dark' : ''} scroll-mt-[90px]`}>
       <div className="bg-lightBG1 dark:bg-darkBG1 flex flex-col justify-center py-[24px]">
         <p className="self-center text-lightText dark:text-darkText text-[24px] font-bold">Skills</p>
         <p className="self-center text-lightText dark:text-darkText text-[20px] font-semibold">Programming Languages</p>

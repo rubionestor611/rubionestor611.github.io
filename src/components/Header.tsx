@@ -1,19 +1,43 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import lightLogo from "../assets/lightLogo.png";
 import darkLogo from "../assets/darkLogo.png";
 import { useTheme } from "./ThemeContext";
 import { navLinks } from "../utils/utils";
 
 const Header = () => {
+  const [activeSection, setActiveSection] = useState('home');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Determine the active section based on scroll position
+      // You may need to adjust this logic based on your specific page structure
+      const sections = document.querySelectorAll('.section'); // Assuming each section has the class 'section'
+      
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+          setActiveSection(section.id);
+        }
+      });
+    };
+
+    // Attach scroll event listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Clean up event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []); // Run effect only once on component mount
+
   const {isDarkMode, toggleTheme} = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [section, setSection] = useState('#home');
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   }
 
   const activeClass = (link: string) => {
-    return section == link ? 'underline font-bold' : 'hover:underline hover:decoration-dashed';
+    return `#${activeSection}` == link ? 'underline font-bold' : 'hover:underline hover:decoration-dashed';
   }
 
   return (
@@ -21,7 +45,7 @@ const Header = () => {
       <div className="flex h-[80px] justify-between items-center px-4 bg-lightBG2 dark:bg-darkBG2">
         {/* LOGO */}
         <div className="logo ">
-          <a href="#home" onClick={() => {setIsMenuOpen(false); setSection('#home')}}><img src={isDarkMode ? darkLogo : lightLogo} alt="Logo" className="h-8 cursor-pointer"/></a>
+          <a href="#home" onClick={() => {setIsMenuOpen(false);}}><img src={isDarkMode ? darkLogo : lightLogo} alt="Logo" className="h-8 cursor-pointer"/></a>
         </div>
         {/* TOGGLE */}
         <div>
@@ -70,7 +94,7 @@ const Header = () => {
           <ul className="flex space-x-4">
             {
               navLinks.map((titleLink,index) => (
-                <li key={`${index}`}><a href={titleLink[1]} onClick={() => setSection(titleLink[1])} className={`cursor-pointer text-lightText dark:text-darkText ${activeClass(titleLink[1])}`}>{titleLink[0]}</a></li>
+                <li key={`${index}`}><a href={titleLink[1]} className={`cursor-pointer text-lightText dark:text-darkText ${activeClass(titleLink[1])}`}>{titleLink[0]}</a></li>
               ))
             }
             <li><a href="https://firstgencs.com" target="_blank" className="bg-primary py-1 px-3 rounded-full text-lightBG1 dark:text-darkBG1 cursor-pointer font-bold">Blog</a></li>

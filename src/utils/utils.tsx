@@ -38,8 +38,8 @@ import { faDumbbell, faGraduationCap, faMousePointer, faSmileBeam } from "@forta
 export const navLinks = [
   ['Home','#home'],
   ['Skills','#skills'],
-  ['About Me', '#about'],
   ['Experience','#experience'],
+  ['About Me', '#about'],
   ['Contact','#contact']
 ];
 

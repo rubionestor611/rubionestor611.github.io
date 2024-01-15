@@ -4,7 +4,7 @@ import { experiences } from "../utils/utils";
 const Experience = () => {
   const {isDarkMode} = useTheme();
   return (
-    <div id="experience" className={`${isDarkMode ? 'dark' : ''} scroll-mt-[90px]`}>
+    <div id="experience" className={`section ${isDarkMode ? 'dark' : ''} scroll-mt-[90px]`}>
       <div className="bg-lightBG1 dark:bg-darkBG1 flex flex-col justify-center py-[24px]">
         <p className="self-center text-lightText dark:text-darkText text-[24px] font-bold mb-[24px]">Dev Experience</p>
         <div className="flex flex-col justify-center self-center gap-2">
