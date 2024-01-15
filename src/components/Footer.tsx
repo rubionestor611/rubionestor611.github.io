@@ -26,6 +26,7 @@ const Footer = () => {
           <a href="https://github.com/rubionestor611" target="_blank" className="text-primary hover:text-lightAccent dark:hover:text-darkAccent hover:scale-125 cursor-pointer"><FontAwesomeIcon icon={faGithub}/></a>
           <a href="https://www.linkedin.com/in/rubio-nestor" target="_blank" className="text-primary hover:text-lightAccent dark:hover:text-darkAccent hover:scale-125 cursor-pointer"><FontAwesomeIcon icon={faLinkedin}/></a>
         </div>
+        <p className="self-center text-xs text-lightText dark:text-darkText">Created using React, Vite, Tailwind, & JavaScript</p>
       </div>
     </div>
   )

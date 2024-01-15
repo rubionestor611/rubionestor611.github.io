@@ -33,6 +33,12 @@ import grad from "../assets/grad.jpg";
 import armsOut from "../assets/armsOut.jpg";
 import memoji from "../assets/memoji.png";
 
+import InvoicesImage from "../assets/projects/invoices.jpg";
+import AudioImage from "../assets/projects/Audio.png";
+import PasswordImage from "../assets/projects/password.png";
+import TodoImage from "../assets/projects/todo.png";
+import ResumeImage from "../assets/projects/AzureResume.png";
+
 import { faDumbbell, faGraduationCap, faMousePointer, faSmileBeam } from "@fortawesome/free-solid-svg-icons";
 
 export const navLinks = [
@@ -43,7 +49,7 @@ export const navLinks = [
   ['Contact','#contact']
 ];
 
-export const words = [" ", "Curious", "Hard-Working", "First-Gen", "Front-End", "Back-End", "Full-Stack"];
+export const words = [" ", "Curious", "Hard-Working", "Empathetic", "First-Gen", "Front-End", "Back-End", "Full-Stack"];
 
 export const skills = {
   languages: [
@@ -145,6 +151,65 @@ export const experiences = [
     ],
     techUsed: ["Java","C","Python","WordPress"]
   },
+];
+
+export const projects = [
+  {
+    img: ResumeImage,
+    name: "Azure Cloud Resume",
+    desc: "This page serves as my resume if everything I couldn't fit into one page was included. After seeing an article related to the Cloud Resume Challenge and reading what it involved, I knew I could learn a lot from it. The challenge involves setting up cloud functions, content delivery networks, and applying HTML skills and so I did all of that with mobile responsiveness in mind and some additional personal design choices.",
+    toolsUsed: [
+      "Azure CDN", "Cosmos DB", "Azure Functions", "HTML","CSS", "JavaScript"
+    ],
+    link: "https://rubionestorresume.azureedge.net/",
+    github:"https://github.com/rubionestor611/cloudresume",
+    youtube:""
+  },
+  {
+    img: InvoicesImage,
+    name:"Invoice Number Generator",
+    desc: "This app allows my dad to control his company invoicing with a simple tool. In it, he can provide simple information like lot number, charge amount, and more to generate the invoice and have an excel spreadsheet automatically updated to reflect the new invoice. This has saved the both of us many hours of work and counting through the automation of the process.",
+    toolsUsed:[
+      "Python", "PySimpleGUI", "OpenPyXL"
+    ],
+    youtube: "https://youtu.be/94pgVkFNxWE",
+    github: "",
+    link: "",
+  },
+  {
+    img: AudioImage,
+    name: "Aud.io",
+    desc: "A group project at UCF, Aud.io is a React web application which allows for the many funcitonalities of music streaming and playlist-making.",
+    toolsUsed:[
+      "React","JavaScript","Auth0","CSS","Google Firebase"
+    ],
+    youtube: "https://www.youtube.com/watch?v=9KzQinshGLw",
+    github: "https://github.com/santy81855/Music_Player",
+    link: "",
+  },
+  {
+    img: TodoImage,
+    name: "React To-Do Application",
+    desc: "My first React project. In it, I made it possible to categorize your items in the list by coloring each row. This way, I was able to group items by class or priorrity or anything else I could think of. I actually used this as my personal to do list for quite a while.",
+    toolsUsed:[
+      "React","JavaScript","CSS"
+    ],
+    youtube: "https://youtu.be/VKHbt1Z5-Fg",
+    github: "https://github.com/rubionestor611/ReactToDo",
+    link: "",
+  },
+  {
+    img: PasswordImage,
+    name: "Password Manager & Generator",
+    desc: "My first personal project, it is a GUI used to store usernames and passwords for sites locally to a MySQL database. It includes ability to copy results to keyboard, generate a password, retrieve a password, and remove a password.",
+    toolsUsed:[
+      "Java","Java Swing", "MySQL"
+    ],
+    youtube: "https://youtu.be/GedZo7i60aI",
+    github: "https://github.com/rubionestor611/PasswordManager",
+    link: "",
+  },
+  // workout planner
 ]
 
 export const selfieImage = {img: selfie, alt: "Selfie of Nestor"};
