@@ -13,8 +13,9 @@ const  Home = () => {
   const leftPics = useMemo(() => [selfieImage, gradImage],[]);
   const rightPics = useMemo(() => [armsOutImage, memojiImage],[]);
 
-  const primaryText = "self-center text-[40px] text-primary font-bold";
-  const secondaryText = "self-center text-[20px] text-lightText dark:text-darkText"
+  const primaryText = "self-center text-[30px] sm:text-[40px] text-primary font-bold";
+  const secondaryText = "self-center text-[20px] text-lightText dark:text-darkText";
+
   useEffect(()=>{
     if(text == words[words.length - 1]) {
       stop();
@@ -24,7 +25,7 @@ const  Home = () => {
   return (
     <div id="home" className={`section ${isDarkMode ? 'dark':''} flex flex-col justify-center`}>
       <div className=" bg-lightBG1 dark:bg-darkBG1 justify-center flex flex-col pt-[80px]">
-        <div className="flex flex-col justify-center px-4 sm:flex-row sm:justify-evenly">
+        <div className="flex flex-col justify-center sm:px-4 sm:flex-row sm:justify-evenly">
           {/* IMAGE ROTATOR & ISLAND */}
           <div className="flex flex-col justify-center">
             <ImageRotator />

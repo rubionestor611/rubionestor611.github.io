@@ -51,8 +51,8 @@ const ContactForm = () => {
         onSubmit={(e)=>sendEmail(e)}
       >
         <p className="self-center text-lightAccent dark:text-darkAccent text-[20px]">Message Me Directly</p>
-        <div className="flex flex-col justify-center w-[80%] self-center">
-          <div className="flex flex-col lg:flex-row lg:justify-between lg:gap-2">
+        <div className="flex flex-col justify-center w-[80%] h-[200px] self-center">
+          <div className="flex flex-col lg:flex-row lg:justify-between lg:gap-2 lg:pb-4">
             <div className="flex flex-col lg:flex-row lg:gap-2 lg:flex-1">
               <label htmlFor="name" className={labelClassName}>Full Name</label>
               <input
@@ -87,7 +87,7 @@ const ContactForm = () => {
             name="message"
             value={payload.message}
             onChange={(event) => handleChange("message", event.currentTarget.value)}
-            className={`${inputClassName} h-[120px] resize-none`}
+            className={`${inputClassName} h-[120px] lg:h-screen resize-none`}
             placeholder="Your message to me"
             onInvalid={(e) => {e.currentTarget.setCustomValidity('Please provide a message')}}
             onInput={(e) => e.currentTarget.setCustomValidity('')}

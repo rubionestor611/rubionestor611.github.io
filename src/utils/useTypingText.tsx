@@ -71,7 +71,7 @@ const useTypingText = (words=["provide"], keySpeed=1000,maxPauseAmount=10) => {
 
   return {
     word: (
-      <span className={`word ${currentWord.length ? 'full' : 'empty'}`}>
+      <span className={`word ${currentWord.length ? 'full' : 'empty'} text-[30px] sm:text-[40px]`}>
 	      <span>{currentWord.length ? currentWord.join('') : '0'}</span>
 	    </span>
     ),
