@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTheme } from "../components/ThemeContext";
 import { experiences, projects } from "../utils/utils";
 import { faGithub, faYoutube } from "@fortawesome/free-brands-svg-icons";
-import { faArrowUpRightFromSquare, faLink } from "@fortawesome/free-solid-svg-icons";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 const Experience = () => {
   const {isDarkMode} = useTheme();
@@ -20,7 +20,7 @@ const Experience = () => {
       </div>
       <div className="bg-lightBG1 dark:bg-darkBG1 flex flex-col justify-center pt-4 pb-[24px]">
         <p className="self-center text-lightText dark:text-darkText text-[24px] font-bold mb-[24px]">Personal Projects</p>
-        <div className="flex flex-row justify-evenly flex-wrap gap-y-2">
+        <div className="flex flex-row justify-evenly flex-wrap gap-y-2 px-4 gap-x-2">
         {
           projects.map((item,index) => (
             ProjectItem(item,index)
@@ -85,7 +85,7 @@ const ProjectItem = (
   index:number
   ) => {
     return (
-      <div key={`${index}`} className="w-[300px] border border-lightText dark:border-darkText p-2 flex flex-col rounded-xl gap-2">
+      <div key={`${index}`} className="w-[300px] border border-lightText dark:border-darkText p-2 px-4 flex flex-col rounded-xl gap-2">
         <div className="self-center flex flex-row justify-center items-center h-[200px]">
           <img src={project.img} className="relative top-0 self-center object-fill rounded-lg max-h-[200px]"/>
         </div>
