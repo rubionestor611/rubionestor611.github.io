@@ -71,7 +71,7 @@ const useTypingText = (words=["provide"], keySpeed=1000,maxPauseAmount=10) => {
 
   return {
     word: (
-      <span className={`word ${currentWord.length ? 'full' : 'empty'} text-[30px] sm:text-[40px]`}>
+      <span className={`word ${currentWord.length ? 'full' : 'empty'} ${isStopped ? 'cursor-pointer' : 'cursor-default'} text-[30px] sm:text-[40px]`} onClick={()=>{if(isStopped) { setCurrentWord(words[wordIndex].split('')); setWordIndex(0); setIsStopped(false); }}}>
 	      <span>{currentWord.length ? currentWord.join('') : '0'}</span>
 	    </span>
     ),

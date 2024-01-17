@@ -38,6 +38,7 @@ import AudioImage from "../assets/projects/Audio.png";
 import PasswordImage from "../assets/projects/password.png";
 import TodoImage from "../assets/projects/todo.png";
 import ResumeImage from "../assets/projects/AzureResume.png";
+import WorkoutPlannerImage from "../assets/projects/WorkoutPlannerImage.png";
 
 import { faDumbbell, faGraduationCap, faMousePointer, faSmileBeam } from "@fortawesome/free-solid-svg-icons";
 
@@ -155,6 +156,17 @@ export const experiences = [
 
 export const projects = [
   {
+    img: WorkoutPlannerImage,
+    name: "Workout Buddy",
+    desc: "Workout Buddy is an app combining a typical workout scheduler/creator with all the benefits of building a support network of friends. It was started as a Senior Design project suggestion by me, since I've had something like this in mind for a long time. In it, you can befriend users to share workouts and workout schedules to support one another or even meet up to exercise together. In this project, I was not only the project manager for a group of 5 UCF students, but I also worked on many pages of the frontend and a string majority of the backend. From database design to API implementation and hosting.",
+    toolsUsed: [
+      "React Native","Expo Go","NodeJS","ExpressJS","MongoDB","Mongoose","Azure Web App","Azure Communication Services","JSON Web Token",
+    ],
+    link: "",
+    github:"https://github.com/rubionestor611/workout-planner",
+    youtube:"https://youtu.be/cNOD5thDXH4"
+  },
+  {
     img: ResumeImage,
     name: "Azure Cloud Resume",
     desc: "This page serves as my resume if everything I couldn't fit into one page was included. After seeing an article related to the Cloud Resume Challenge and reading what it involved, I knew I could learn a lot from it. The challenge involves setting up cloud functions, content delivery networks, and applying HTML skills and so I did all of that with mobile responsiveness in mind and some additional personal design choices.",
@@ -179,7 +191,7 @@ export const projects = [
   {
     img: AudioImage,
     name: "Aud.io",
-    desc: "A group project at UCF, Aud.io is a React web application which allows for the many funcitonalities of music streaming and playlist-making.",
+    desc: "A group project at UCF, Aud.io is a React web application which allows for the many funcitonalities of music streaming and playlist-making. It's library is based entirely on copyright-free music.",
     toolsUsed:[
       "React","JavaScript","Auth0","CSS","Google Firebase"
     ],

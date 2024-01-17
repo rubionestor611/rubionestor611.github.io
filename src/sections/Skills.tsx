@@ -8,7 +8,7 @@ const Skills = () => {
     <div id="skills" className={`section ${isDarkMode ? 'dark' : ''} scroll-mt-[90px]`}>
       <div className="bg-lightBG1 dark:bg-darkBG1 flex flex-col justify-center py-[24px]">
         <p className="self-center text-lightText dark:text-darkText text-[24px] font-bold">Skills</p>
-        <p className="self-center text-lightText dark:text-darkText text-[20px] font-semibold">Programming Languages</p>
+        <p className="self-center text-lightText dark:text-darkText text-[20px] font-semibold py-2">Programming Languages</p>
         <div className="pt-1 self-center flex flex-row flex-wrap justify-center gap-2 md:gap-4 lg:gap-8 w-[90%]">
         {
           skills.languages.map((lang,index) => (
@@ -16,7 +16,7 @@ const Skills = () => {
           ))
         }
         </div>
-        <p className="self-center text-lightText dark:text-darkText text-[20px] font-semibold">Tools & Frameworks</p>
+        <p className="self-center text-lightText dark:text-darkText text-[20px] font-semibold py-2">Tools & Frameworks</p>
         <div className="pt-1 self-center flex flex-row flex-wrap justify-center gap-2 md:gap-4 lg:gap-8 w-[90%]">
         {
           skills.technologies.map((lang,index) => (
