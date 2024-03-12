@@ -171,9 +171,9 @@ export const projects = [
     name: "Azure Cloud Resume",
     desc: "This page serves as my resume if everything I couldn't fit into one page was included. After seeing an article related to the Cloud Resume Challenge and reading what it involved, I knew I could learn a lot from it. The challenge involves setting up cloud functions, content delivery networks, and applying HTML skills and so I did all of that with mobile responsiveness in mind and some additional personal design choices.",
     toolsUsed: [
-      "Azure CDN", "Cosmos DB", "Azure Functions", "HTML","CSS", "JavaScript"
+      "Azure CDN", "Cosmos DB", "Azure Functions", "HTML","CSS", "JavaScript", "Python"
     ],
-    link: "https://rubionestorresume.azureedge.net/",
+    link: "https://nrubioresume.azureedge.net/",
     github:"https://github.com/rubionestor611/cloudresume",
     youtube:""
   },
@@ -221,7 +221,6 @@ export const projects = [
     github: "https://github.com/rubionestor611/PasswordManager",
     link: "",
   },
-  // workout planner
 ]
 
 export const selfieImage = {img: selfie, alt: "Selfie of Nestor"};
