@@ -87,7 +87,7 @@ const  Home = () => {
           <div className="flex flex-col sm:flex-row justify-center sm:gap-4">
             <a href={Resume} download={"RubioNestorResume"} target="_blank" className="flex flex-col justify-center text-center bg-primary w-[290px] h-[50px] rounded self-center text-lightBG1 dark:text-darkBG1 font-bold transition-colors duration-300 ease-in-out hover:bg-lightAccent dark:hover:bg-darkAccent cursor-pointer">PDF</a>
             <p className="self-center text-[20px] text-lightText dark:text-darkText">and</p>
-            <a href="https://rubionestorresume.azureedge.net/" target="_blank" className="flex flex-col justify-center text-center bg-primary w-[290px] h-[50px] rounded self-center text-lightBG1 dark:text-darkBG1 font-bold transition-colors duration-300 ease-in-out hover:bg-lightAccent dark:hover:bg-darkAccent cursor-pointer">HTML / CSS</a>
+            <a href="https://nrubioresume.azureedge.net/" target="_blank" className="flex flex-col justify-center text-center bg-primary w-[290px] h-[50px] rounded self-center text-lightBG1 dark:text-darkBG1 font-bold transition-colors duration-300 ease-in-out hover:bg-lightAccent dark:hover:bg-darkAccent cursor-pointer">HTML / CSS</a>
           </div>
           
         </div>
