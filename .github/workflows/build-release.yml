@@ -1,25 +1,23 @@
-name: Deploy
-
+name: Build and Deploy
 on:
   push:
     branches:
       - main
-
+permissions:
+  contents: write
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Set up Git
+      - name: Install and Build
         run: |
-          git config --global user.email "nestordrubio9@gmail.com"
-          git config --global user.name "Nestor Rubio"
+          npm ci
+          npm run build
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build and deploy
-        run: npm run deploy
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
+        with:
+          folder: build
