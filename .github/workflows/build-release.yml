@@ -1,4 +1,4 @@
-name: build-deploy
+name: Deploy
 
 on:
   push:
@@ -12,6 +12,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Set up Git
+        run: |
+          git config --global user.email "nestordrubio9@gmail.com"
+          git config --global user.name "Nestor Rubio"
 
       - name: Install dependencies
         run: npm install
