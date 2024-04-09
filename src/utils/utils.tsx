@@ -92,7 +92,7 @@ export const aboutMe = {
   cards: [
     {
       logo: faGraduationCap,
-      text: "I graduated cum laude honors from the University of Central Florida in May 2023. I am thankful to have been able to help fellow knights through my tutoring while there. GO KNIGHTS!"
+      text: "I graduated cum laude honors from the University of Central Florida in May 2023. I'm thankful to have helped many knights through my tutoring while there. GO KNIGHTS!"
     },
     {
       logo: faDumbbell,
@@ -100,7 +100,7 @@ export const aboutMe = {
     },
     {
       logo: faSmileBeam,
-      text: "I love to make people feel included, welcome, involved, and cared for. Whether it be through humor, genuine curiosity in them, or whatever else I feel may help improve their day."
+      text: "I live to help and learn. I found the best outlet for my helping as a tutor at my university where I helped many students with a veriety of CS topics. In all my positions, I am always seeking to teach and learn from others."
     },
     {
       logo: faMousePointer,
@@ -120,9 +120,9 @@ export const experiences = [
       "Drive the development and enhancement of Milly's web and mobile applications by leveraging extensive expertise in React and React Native, while also crafting compelling demo products showcased to potential clients",
       "Lead Git version control management and actively mentor colleagues on diverse aspects of project execution and technology",
       "Lead and guide the design phases across all products, playing a pivotal role in ensuring high-quality design standards and user experience",
-      "Undertake a leadership role in the conceptualization and implementation of innovative design processes to enhance product development and usability"
+      "Undertake a leadership role in the conceptualization and implementation of automation of development processes via scripting in Python and Github Action pipelines"
     ],
-    techUsed: ["React","React Native","Expo Go","Tailwind","Redux Toolkit","Figma"],
+    techUsed: ["React","React Native","Expo Go","Tailwind","Redux Toolkit","Figma", "Python", "Github Actions"],
   },
   {
     title: "Software Engineer Intern",

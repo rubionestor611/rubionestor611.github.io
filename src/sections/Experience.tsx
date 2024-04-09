@@ -10,7 +10,7 @@ const Experience = () => {
     <div id="experience" className={`section ${isDarkMode ? 'dark' : ''} scroll-mt-[90px]`}>
       <div className="bg-lightBG1 dark:bg-darkBG1 flex flex-col justify-center pt-[24px]">
         <p className="self-center text-lightText dark:text-darkText text-[24px] font-bold mb-[24px]">Dev Experience</p>
-        <div className="flex flex-col justify-center self-center gap-2">
+        <div className="flex flex-col justify-center self-center gap-4">
         {
           experiences.map((item,index) => (
             ExpItem(item,index)
@@ -46,26 +46,35 @@ const ExpItem = (
   ) => {
     return (
       <div key={`${index}`} className="flex flex-row space-x-[25px] w-[90%] relative self-center">
+        {/* left border */}
         <div className="absolute h-full border-l border-lightText dark:border-darkText rounded"/>
-        <div>
-          <p className="text-xs text-lightText dark:text-darkText italic">{exp.dateRange}</p>
-          <p className="text-xl text-lightText dark:text-darkText font-bold">{exp.title}</p>
-          <p className="text-sm text-lightText dark:text-darkText italic">{exp.company}</p>
-          <p className="text-sm text-lightText dark:text-darkText italic">{exp.location}</p>
-          <ul className="list-disc list-inside mt-2">
+        {/* text content */}
+        <div className="flex flex-col md:flex-row md:gap-4">
+          <div className="w-[300px]">
+            <p className="text-xs text-lightText dark:text-darkText italic">{exp.dateRange}</p>
+            <p className="text-xl text-lightText dark:text-darkText font-bold">{exp.title}</p>
+            <p className="text-sm text-lightText dark:text-darkText italic">{exp.company}</p>
+            <p className="text-sm text-lightText dark:text-darkText italic">{exp.location}</p>
+          </div>
+          <div className="w-full">
+            {/* bullet points */}
+            <ul className="list-disc list-inside mt-2 md:mt-0">
+              {
+                exp.description.map((str,index) => (
+                  <li key={`${index}`} className="text-xs text-lightText dark:text-darkText">{str}</li>
+                ))
+              }
+            </ul>
+            {/* skill bubbles */}
+            <div className="flex flex-row space-x-2 flex-wrap mt-2">
             {
-              exp.description.map((str,index) => (
-                <li key={`${index}`} className="text-xs text-lightText dark:text-darkText">{str}</li>
+              exp.techUsed.map((str,index) => (
+                <p key={`${index}`} className="min-w-[50px] text-center cursor-default text-xs p-2 bg-lightAccent dark:bg-darkAccent rounded-full text-lightText dark:text-darkText mb-2">{str}</p>
               ))
             }
-          </ul>
-          <div className="flex flex-row space-x-2 flex-wrap mt-2">
-          {
-            exp.techUsed.map((str,index) => (
-              <p key={`${index}`} className="min-w-[50px] text-center cursor-default text-xs p-2 bg-lightAccent dark:bg-darkAccent rounded-full text-lightText dark:text-darkText mb-2">{str}</p>
-            ))
-          }
+            </div>
           </div>
+          
         </div>
         
       </div>

@@ -12,9 +12,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Determine the active section based on scroll position
-      // You may need to adjust this logic based on your specific page structure
-      const sections = document.querySelectorAll('.section'); // Assuming each section has the class 'section'
+      const sections = document.querySelectorAll('.section');
       
       sections.forEach((section) => {
         const rect = section.getBoundingClientRect();
@@ -24,14 +22,12 @@ const Header = () => {
       });
     };
 
-    // Attach scroll event listener
     window.addEventListener('scroll', handleScroll);
 
-    // Clean up event listener on component unmount
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []); // Run effect only once on component mount
+  }, []);
 
   const {isDarkMode, toggleTheme} = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -45,7 +41,7 @@ const Header = () => {
 
   return (
     <header className={`${isDarkMode ? 'dark':''} fixed top-0 z-50 header h-[80px] w-screen ${isMenuOpen ? 'header-open' : ''}`}>
-      <div className="flex h-[80px] justify-between items-center px-4 bg-lightBG2 dark:bg-darkBG2">
+      <div className="flex h-[80px] justify-between items-center px-8 bg-lightBG2 dark:bg-darkBG2">
         <div className="flex flex-row justify-start items-center gap-16">
           {/* LOGO */}
           <div className="logo ">
