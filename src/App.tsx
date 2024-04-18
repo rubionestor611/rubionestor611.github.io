@@ -7,6 +7,7 @@ import Skills from './sections/Skills';
 import Experience from './sections/Experience';
 import Contact from './sections/Contact';
 import About from './sections/About';
+import Spotify from './sections/Spotify';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Skills/>
         <Experience/>
         <About/>
+        <Spotify/>
         <Contact/>
         <Footer/>
       </div>

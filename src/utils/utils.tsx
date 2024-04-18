@@ -41,12 +41,15 @@ import ResumeImage from "../assets/projects/AzureResume.png";
 import WorkoutPlannerImage from "../assets/projects/WorkoutPlannerImage.png";
 
 import { faDumbbell, faGraduationCap, faMousePointer, faSmileBeam } from "@fortawesome/free-solid-svg-icons";
+import { SpotifyProfile } from "./types";
+import axios from "axios";
 
 export const navLinks = [
   ['Home','#home'],
   ['Skills','#skills'],
   ['Experience','#experience'],
   ['About Me', '#about'],
+  ['Spotify', '#spotify'],
   ['Contact','#contact']
 ];
 
@@ -227,3 +230,19 @@ export const selfieImage = {img: selfie, alt: "Selfie of Nestor"};
 export const gradImage = {img:grad,alt:"Picture of Nestor at UCF graduation"};
 export const armsOutImage = {img:armsOut,alt:"Picture of Nestor in graduation cap & gown with arms out"};
 export const memojiImage = {img:memoji,alt:"Nestor's Apple Memoji picture"};
+
+export const client = axios.create({
+  baseURL: import.meta.env.VITE_NESTOR_API,
+});
+
+export default async function getSpotifyProfile():Promise<SpotifyProfile> {
+  try {
+    const base = import.meta.env.VITE_NESTOR_API;
+    const res = await axios.get(base + "/spotify/profile");
+    return res.data;
+  } catch (err) {
+    console.error(err);
+    throw err; // Re-throw the error to handle it outside of this function if needed
+  }
+}
+
