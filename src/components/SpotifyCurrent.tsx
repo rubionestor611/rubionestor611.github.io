@@ -6,8 +6,8 @@ type Props = {
 }
 
 const SpotifyCurrent = ({profile, current}:Props) => {
-    const profileImg = typeof profile == "string" ? null : profile.images.sort((a,b) => b.width - a.width)[0];
-    const currentImg = typeof current == "string" ? null : current.item.album.images.sort((a,b) => b.width - a.width)[0];
+    const profileImg = typeof profile == "string" ? null : profile.images?.sort((a,b) => b.width - a.width)[0];
+    const currentImg = typeof current == "string" ? null : current.item.album?.images.sort((a,b) => b.width - a.width)[0];
 
     return (
         <div className="flex flex-col sm:flex-row self-center px-4 py-4  md:px-8 md:py-8 bg-black rounded-lg flex border border-lightText dark:border-darkText mb-8 mx-4">

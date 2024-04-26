@@ -31,6 +31,11 @@ const Spotify = () => {
           })
           return error;
         });
+
+        if(response.status != HttpStatusCode.Ok) {
+          return;
+        }
+
         const expiration = new Date().getTime() + (1000 * 60 * 60 * 24 * 7); // 7 days of cache
         localStorage.setItem("profile", JSON.stringify({ ...response.data, expiresAt: expiration }));
         setSpotifyData((old) => ({
@@ -58,6 +63,11 @@ const Spotify = () => {
             })
             return error;
           });
+
+          if(response.status != HttpStatusCode.Ok) {
+            return;
+          }
+
           const newExpiration = new Date().getTime() + (1000 * 60 * 60 * 24 * 7); // 7 days of cache
           localStorage.setItem("profile", JSON.stringify({ ...response.data, expiresAt: newExpiration }));
           setSpotifyData((old) => ({
@@ -84,6 +94,11 @@ const Spotify = () => {
           })
           return error;
         });
+
+        if(response.status != HttpStatusCode.Ok) {
+          return;
+        }
+
         const expiration = new Date().getTime() + (1000 * 60 * 60 * 24 * 14); // 2 weeks of cache
         localStorage.setItem("topTracks", JSON.stringify({ ...response.data, expiresAt: expiration }));
         setSpotifyData((old) => ({
@@ -111,6 +126,11 @@ const Spotify = () => {
             })
             return error;
           });
+
+          if(response.status != HttpStatusCode.Ok) {
+            return;
+          }
+
           const newExpiration = new Date().getTime() + (1000 * 60 * 60 * 24 * 14); // 2 weeks of cache
           localStorage.setItem("topTracks", JSON.stringify({ ...response.data, expiresAt: newExpiration }));
           setSpotifyData((old) => ({
@@ -132,14 +152,12 @@ const Spotify = () => {
           setSpotifyData((curData)=>{
             return {
               ...curData,
-              current: error.response.status == HttpStatusCode.NotFound ? JSON.parse(error.response.data.replace("null","")).message : "There was an issue collecting my currently playing song from Spotify. Feel free to message me to let me know and I'll see if I can fix it."
+              current: error.response.status == HttpStatusCode.NoContent ? JSON.parse(error.response.data.replace("null","")).message : "There was an issue collecting my currently playing song from Spotify. Feel free to message me to let me know and I'll see if I can fix it."
             }
           });
           
           return error;
         });
-
-        
         
         if(response.status != 200) return;
 
@@ -195,24 +213,29 @@ const Spotify = () => {
   useEffect(() => {
     console.log(spotifyData)
   },[spotifyData]);
-
-  const clearCache = () => {
-    localStorage.removeItem("profile");
-    localStorage.removeItem("currentSong");
-    localStorage.removeItem("topTracks");
+  
+  if(typeof spotifyData.current == "string" && typeof spotifyData.profile == "string" && typeof spotifyData.topTracks == "string") {
+    return (
+      <div id="spotify" className={`section ${isDarkMode ? 'dark' : ''} scroll-mt-[90px]`}>
+        <div className="bg-lightBG2 dark:bg-darkBG2 flex flex-col justify-center py-[24px] text-darkText">
+          <p className="self-center text-lightText dark:text-darkText text-[24px] mb-[24px] font-bold">My Live Spotify Breakdown</p>
+          <p className="self-center text-lightText dark:text-darkText text-[20px]">There was an issue connecting to my API. No issue was retrieved. Feel free to message me so that I can figure out what is going wrong and to see if I can find how to fix it.</p>
+        </div>
+      </div>
+    )
   }
-
+  
   return (
     <div id="spotify" className={`section ${isDarkMode ? 'dark' : ''} scroll-mt-[90px]`}>
       <div className="bg-lightBG2 dark:bg-darkBG2 flex flex-col justify-center py-[24px] text-darkText">
-        <p className="self-center text-lightText dark:text-darkText text-[24px] mb-[24px] font-bold" onClick={clearCache}>My Live Spotify Breakdown</p>
+        <p className="self-center text-lightText dark:text-darkText text-[24px] mb-[24px] font-bold">My Live Spotify Breakdown</p>
         
         <SpotifyCurrent current={spotifyData.current} profile={spotifyData.profile}/>
 
         {
           typeof spotifyData.topTracks != "string" ?
           <>
-            <p className="self-center text-lightText dark:text-darkText text-[20px] mb-[24px] font-bold" onClick={clearCache}>Top 20 Tracks Recently</p>
+            <p className="self-center text-lightText dark:text-darkText text-[20px] mb-[24px] font-bold">Top 20 Tracks Recently</p>
             <Swiper
               slidesPerView={"auto"}
               spaceBetween={20}
