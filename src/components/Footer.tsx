@@ -11,7 +11,7 @@ const Footer = () => {
     <div className={`${isDarkMode ? 'dark':''}`}>
       <div className="bg-lightBG2 dark:bg-darkBG2 h-full w-full flex flex-col justify-center gap-4 py-8">
         {/* LOGO */}
-        <a href="#home" className="flex flex-row justify-center cursor-pointer"><img src={isDarkMode ? darkLogo : lightLogo} alt="Logo" className="h-8 self-center"/></a>
+        <a href="#home" className="flex flex-col justify-center cursor-pointer w-fit self-center px-2"><img src={isDarkMode ? darkLogo : lightLogo} alt="Logo" className="h-8 self-center"/></a>
         {/* LINKS */}
         <ul className="flex flex-row justify-center flex-wrap px-[15px]">
           {

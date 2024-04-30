@@ -18,13 +18,13 @@ const SpotifyCurrent = ({profile, current}:Props) => {
                     <div className="flex-1 h-full flex flex-col justify-between items-center gap-2">
                         <p className="text-[20px] font-bold text-darkText">Spotify Account</p>
                         <p className="text-lg font-semibold text-darkText">{profile.display_name}</p>
-                        <img src={profileImg?.url} className="w-[100px] h-[100px] md:w-[250px] md:h-[250px]"/>
+                        <img src={profileImg?.url} draggable={false} className="w-[100px] h-[100px] md:w-[250px] md:h-[250px]"/>
                         <a
                             className="underline text-center text-sm text-darkText hover:cursor-pointer"
                             href={profile.external_urls.spotify}
                             target="__blank"
                         >
-                            Wanna visit my account?
+                            Wanna visit my account? I currently have only {profile.followers.total} follower{profile.followers.total != 1 ? "s" : ""}
                         </a>
                     </div>
                     : <p>{profile}</p>
@@ -39,7 +39,7 @@ const SpotifyCurrent = ({profile, current}:Props) => {
                     typeof current != "string" ? 
                     <div className="flex-1 h-full flex flex-col justify-between items-center gap-2">
                         <p className="text-[20px] font-bold text-darkText">Currently Playing</p>
-                        <img src={currentImg?.url} className="w-[100px] h-[100px] md:w-[250px] md:h-[250px]"/>
+                        <img src={currentImg?.url} draggable={false} className="w-[100px] h-[100px] md:w-[250px] md:h-[250px]"/>
                         <p className="text-lg break-words font-bold text-center text-darkText">{current.item.name}</p>
                         <p>{current.item.artists.map((artist) => artist.name).join(", ")}</p>
                     </div>

@@ -152,14 +152,25 @@ const Spotify = () => {
           setSpotifyData((curData)=>{
             return {
               ...curData,
-              current: error.response.status == HttpStatusCode.NoContent ? JSON.parse(error.response.data.replace("null","")).message : "There was an issue collecting my currently playing song from Spotify. Feel free to message me to let me know and I'll see if I can fix it."
+              current: "There was an issue collecting my currently playing song from Spotify. Feel free to message me to let me know and I'll see if I can fix it."
             }
           });
           
           return error;
         });
-        
+
         if(response.status != 200) return;
+        if(typeof response.data == "string") {
+          // @ts-expect-error should never be type string unless odd case
+          const msg = JSON.parse(response.data.replace("null",""));
+          setSpotifyData((curData) => {
+            return {
+              ...curData,
+              current: msg.message
+            }
+          });
+          return;
+        }
 
         const expiration = new Date().getTime() + (1000 * 60 * 5); // 5 min of cache
         localStorage.setItem("currentSong", JSON.stringify({ ...response.data, expiresAt: expiration }));
@@ -183,14 +194,24 @@ const Spotify = () => {
             setSpotifyData((curData)=>{
               return {
                 ...curData,
-                current: error.status == HttpStatusCode.NotFound ? JSON.parse(error.response.data.replace("null","")).message : "There was an issue collecting my currently playing song from Spotify. Feel free to message me to let me know and I'll see if I can fix it."
+                current: "There was an issue collecting my currently playing song from Spotify. Feel free to message me to let me know and I'll see if I can fix it."
               }
             })
             return error;
           });
           
           if(response.status != 200) return;
-
+          if(typeof response.data == "string") {
+            // @ts-expect-error should never be type string unless odd case
+            const msg = JSON.parse(response.data.replace("null",""));
+            setSpotifyData((curData) => {
+              return {
+                ...curData,
+                current: msg.message
+              }
+            });
+            return;
+          }
           const newExpiration = new Date().getTime() + (1000 * 60 * 5); // 5 min of cache
           localStorage.setItem("currentSong", JSON.stringify({ ...response.data, expiresAt: newExpiration }));
           setSpotifyData((old) => ({
@@ -210,9 +231,7 @@ const Spotify = () => {
     fetchCurrentSong();
   }, []);
 
-  useEffect(() => {
-    console.log(spotifyData)
-  },[spotifyData]);
+  //localStorage.removeItem("currentSong")
   
   if(typeof spotifyData.current == "string" && typeof spotifyData.profile == "string" && typeof spotifyData.topTracks == "string") {
     return (
@@ -245,8 +264,8 @@ const Spotify = () => {
               loop={true}
             >
               {
-                spotifyData.topTracks.items.map((track, index) => (
-                  <SwiperSlide className="flex flex-col justify-center items-center w-auto">
+                spotifyData.topTracks.items?.map((track, index) => (
+                  <SwiperSlide className="flex flex-col justify-center items-center w-auto" key={index.toString()}>
                     <SpotifyTopTrackCard track={track} index={index + 1} />
                   </SwiperSlide>
                 ))
