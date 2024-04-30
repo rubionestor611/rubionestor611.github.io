@@ -16,6 +16,11 @@ jobs:
         run: |
           npm ci
           npm run build
+        env:
+          VITE_EMAILJS_SECRET: ${{ secrets.VITE_EMAILJS_SECRET  }}
+          VITE_EMAILJS_SERVICE: ${{ secrets.VITE_EMAILJS_SERVICE  }}
+          VITE_EMAILJS_TEMPLATE: ${{ secrets.VITE_EMAILJS_TEMPLATE  }}
+          VITE_NESTOR_API: ${{ secrets.VITE_NESTOR_API  }}
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.5.0
