@@ -234,7 +234,7 @@ const Spotify = () => {
           setSpotifyData((curData)=>{
             return {
               ...curData,
-              current: "There was an issue collecting my recently played song from Spotify. Feel free to message me to let me know and I'll see if I can fix it."
+              recentlyPlayed: "There was an issue collecting my recently played song from Spotify. Feel free to message me to let me know and I'll see if I can fix it."
             }
           });
           
@@ -248,7 +248,7 @@ const Spotify = () => {
           setSpotifyData((curData) => {
             return {
               ...curData,
-              current: msg.message
+              recentlyPlayed: msg.message
             }
           });
           return;
@@ -276,7 +276,7 @@ const Spotify = () => {
             setSpotifyData((curData)=>{
               return {
                 ...curData,
-                current: "There was an issue collecting my recently played song from Spotify. Feel free to message me to let me know and I'll see if I can fix it."
+                recentlyPlayed: "There was an issue collecting my recently played song from Spotify. Feel free to message me to let me know and I'll see if I can fix it."
               }
             })
             return error;
@@ -289,7 +289,7 @@ const Spotify = () => {
             setSpotifyData((curData) => {
               return {
                 ...curData,
-                current: msg.message
+                recentlyPlayed: msg.message
               }
             });
             return;
