@@ -46,10 +46,18 @@ export type SpotifyProfile = {
     expiresAt?: number
 }
 
+export type RecentlyPlayed = {
+    items: {
+        track: Track;
+    }[],
+    expiresAt?: number
+}
+
 export type SpotifyData = {
     current: CurrentTrack | string;
     topTracks: TopTracks | string;
     profile: SpotifyProfile | string;
+    recentlyPlayed: RecentlyPlayed | string;
 }
 
 export type NestorAPIError = {

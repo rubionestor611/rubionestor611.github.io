@@ -1,7 +1,7 @@
 import { useTheme } from "../components/ThemeContext";
 import { client } from "../utils/utils";
 import { useEffect, useState } from "react";
-import { CurrentTrack, SpotifyData, SpotifyProfile, TopTracks, Track } from "../utils/types";
+import { CurrentTrack, RecentlyPlayed, SpotifyData, SpotifyProfile, TopTracks, Track } from "../utils/types";
 import { AxiosResponse, HttpStatusCode } from "axios";
 import SpotifyTopTrackCard from "../components/SpotifyTopTrackCard";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -15,7 +15,8 @@ const Spotify = () => {
   const [spotifyData, setSpotifyData] = useState<SpotifyData>({
     current: "",
     profile: "",
-    topTracks: ""
+    topTracks: "",
+    recentlyPlayed: ""
   });
 
   const fetchProfile = async (): Promise<void> => {
@@ -225,15 +226,101 @@ const Spotify = () => {
     }
   };
 
+  const fetchRecentSong = async (): Promise<void> => {
+    try {
+      const cachedRecentSong = localStorage.getItem("recentSong");
+      if (!cachedRecentSong) {
+        const response: AxiosResponse<RecentlyPlayed> = await client.get("/spotify/recently-played").catch((error) => {
+          setSpotifyData((curData)=>{
+            return {
+              ...curData,
+              current: "There was an issue collecting my recently played song from Spotify. Feel free to message me to let me know and I'll see if I can fix it."
+            }
+          });
+          
+          return error;
+        });
+
+        if(response.status != 200) return;
+        if(typeof response.data == "string") {
+          // @ts-expect-error should never be type string unless odd case
+          const msg = JSON.parse(response.data.replace("null",""));
+          setSpotifyData((curData) => {
+            return {
+              ...curData,
+              current: msg.message
+            }
+          });
+          return;
+        }
+
+        const expiration = new Date().getTime() + (1000 * 60 * 5); // 5 min of cache
+        localStorage.setItem("recentSong", JSON.stringify({ ...response.data, expiresAt: expiration }));
+        setSpotifyData((old) => ({
+          ...old,
+          recentlyPlayed: {...response.data, expiresAt: expiration}
+        }));
+      } else {
+        const recentSongData: RecentlyPlayed = JSON.parse(cachedRecentSong);
+        const expiresAt: number = recentSongData.expiresAt || 0;
+
+        // Check if the cached top track data is expired
+        if (expiresAt > new Date().getTime()) {
+          setSpotifyData((old) => ({
+            ...old,
+            recentlyPlayed: recentSongData
+          }));
+        } else {
+          // If expired, fetch new profile data
+          const response: AxiosResponse<RecentlyPlayed> = await client.get("/spotify/recently-played").catch((error) => {
+            setSpotifyData((curData)=>{
+              return {
+                ...curData,
+                current: "There was an issue collecting my recently played song from Spotify. Feel free to message me to let me know and I'll see if I can fix it."
+              }
+            })
+            return error;
+          });
+          
+          if(response.status != 200) return;
+          if(typeof response.data == "string") {
+            // @ts-expect-error should never be type string unless odd case
+            const msg = JSON.parse(response.data.replace("null",""));
+            setSpotifyData((curData) => {
+              return {
+                ...curData,
+                current: msg.message
+              }
+            });
+            return;
+          }
+          const newExpiration = new Date().getTime() + (1000 * 60 * 5); // 5 min of cache
+          localStorage.setItem("recentSong", JSON.stringify({ ...response.data, expiresAt: newExpiration }));
+          setSpotifyData((old) => ({
+            ...old,
+            recentlyPlayed: {...response.data, expiresAt: newExpiration}
+          }));
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching recently played song on Spotify:', error);
+    }
+  }
+
   useEffect(() => {
     fetchProfile();
     fetchTopTracks();
     fetchCurrentSong();
   }, []);
 
-  //localStorage.removeItem("currentSong")
+  useEffect(() => {
+    if(typeof spotifyData.current == "string" && spotifyData.current.length > 0) {
+      // error set, fetch recentlyPlayed
+      fetchRecentSong();
+    }
+  },[spotifyData.current])
   
-  if(typeof spotifyData.current == "string" && typeof spotifyData.profile == "string" && typeof spotifyData.topTracks == "string") {
+  if(typeof spotifyData.current == "string" && typeof spotifyData.profile == "string" && typeof spotifyData.topTracks == "string" && typeof spotifyData.recentlyPlayed == "string") {
     return (
       <div id="spotify" className={`section ${isDarkMode ? 'dark' : ''} scroll-mt-[90px]`}>
         <div className="bg-lightBG2 dark:bg-darkBG2 flex flex-col justify-center py-[24px] text-darkText">
@@ -249,7 +336,7 @@ const Spotify = () => {
       <div className="bg-lightBG2 dark:bg-darkBG2 flex flex-col justify-center py-[24px] text-darkText">
         <p className="self-center text-lightText dark:text-darkText text-[24px] mb-[24px] font-bold">My Live Spotify Breakdown</p>
         
-        <SpotifyCurrent current={spotifyData.current} profile={spotifyData.profile}/>
+        <SpotifyCurrent current={spotifyData.current} profile={spotifyData.profile} recent={spotifyData.recentlyPlayed}/>
 
         {
           typeof spotifyData.topTracks != "string" ?
