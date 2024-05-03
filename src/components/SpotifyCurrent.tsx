@@ -7,7 +7,6 @@ type Props = {
 }
 
 const SpotifyCurrent = ({profile, current, recent}:Props) => {
-    console.log(profile, current, recent)
     const profileImg = typeof profile == "string" ? null : profile.images?.sort((a,b) => b.width - a.width)[0];
     const currentImg = typeof current == "string" ? null : current.item?.album?.images?.sort((a,b) => b.width - a.width)[0];
     const recentImg = currentImg || typeof recent == "string" ? null : recent.items[0].track?.album?.images.sort((a,b) => b.width - a.width)[0];
