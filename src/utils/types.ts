@@ -11,6 +11,7 @@ export type CurrentTrack = {
         };
     },
     expiresAt?: number
+    message?: string
 }
 
 export type Track = {
@@ -50,7 +51,8 @@ export type RecentlyPlayed = {
     items: {
         track: Track;
     }[],
-    expiresAt?: number
+    expiresAt?: number;
+    message?: string
 }
 
 export type SpotifyData = {

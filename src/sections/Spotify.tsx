@@ -10,6 +10,13 @@ import 'swiper/css/autoplay';
 import { Autoplay } from "swiper/modules";
 import SpotifyCurrent from "../components/SpotifyCurrent";
 
+const currentSongError = "There was an issue collecting my currently playing song from Spotify. Feel free to message me to let me know and I'll see if I can fix it.";
+const profileError = "There was an issue collecting my Spotify information. Feel free to message me to let me know and I'll see if I can fix it.";
+const topTracksError = "There was an issue collecting my top tracks from Spotify. Feel free to message me to let me know and I'll see if I can fix it.";
+const recentSongError = "There was an issue collecting my recently played song from Spotify. Feel free to message me to let me know and I'll see if I can fix it.";
+
+
+
 const Spotify = () => {
   const {isDarkMode} = useTheme();
   const [spotifyData, setSpotifyData] = useState<SpotifyData>({
@@ -27,7 +34,7 @@ const Spotify = () => {
           setSpotifyData((curData)=>{
               return {
                   ...curData,
-                  profile: "There was an issue collecting my Spotify information. Feel free to message me to let me know and I'll see if I can fix it."
+                  profile: profileError
               }
           })
           return error;
@@ -59,7 +66,7 @@ const Spotify = () => {
             setSpotifyData((curData)=>{
               return {
                 ...curData,
-                profile: "There was an issue collecting my Spotify information. Feel free to message me to let me know and I'll see if I can fix it."
+                profile: profileError
               }
             })
             return error;
@@ -90,7 +97,7 @@ const Spotify = () => {
           setSpotifyData((curData)=>{
             return {
               ...curData,
-              topTracks: "There was an issue collecting my top tracks from Spotify. Feel free to message me to let me know and I'll see if I can fix it."
+              topTracks: topTracksError
             }
           })
           return error;
@@ -122,7 +129,7 @@ const Spotify = () => {
             setSpotifyData((curData)=>{
               return {
                 ...curData,
-                topTracks: "There was an issue collecting my top tracks from Spotify. Feel free to message me to let me know and I'll see if I can fix it."
+                topTracks: topTracksError
               }
             })
             return error;
@@ -153,21 +160,19 @@ const Spotify = () => {
           setSpotifyData((curData)=>{
             return {
               ...curData,
-              current: "There was an issue collecting my currently playing song from Spotify. Feel free to message me to let me know and I'll see if I can fix it."
+              current: currentSongError
             }
           });
           
           return error;
         });
-
         if(response.status != 200) return;
-        if(typeof response.data == "string") {
-          // @ts-expect-error should never be type string unless odd case
-          const msg = JSON.parse(response.data.replace("null",""));
+        
+        if(response.data.message) {
           setSpotifyData((curData) => {
             return {
               ...curData,
-              current: msg.message
+              current: response.data?.message || currentSongError
             }
           });
           return;
@@ -195,20 +200,18 @@ const Spotify = () => {
             setSpotifyData((curData)=>{
               return {
                 ...curData,
-                current: "There was an issue collecting my currently playing song from Spotify. Feel free to message me to let me know and I'll see if I can fix it."
+                current: currentSongError
               }
             })
             return error;
           });
           
           if(response.status != 200) return;
-          if(typeof response.data == "string") {
-            // @ts-expect-error should never be type string unless odd case
-            const msg = JSON.parse(response.data.replace("null",""));
+          if(response.data.message) {
             setSpotifyData((curData) => {
               return {
                 ...curData,
-                current: msg.message
+                current: response.data?.message || currentSongError
               }
             });
             return;
@@ -234,7 +237,7 @@ const Spotify = () => {
           setSpotifyData((curData)=>{
             return {
               ...curData,
-              recentlyPlayed: "There was an issue collecting my recently played song from Spotify. Feel free to message me to let me know and I'll see if I can fix it."
+              recentlyPlayed: recentSongError
             }
           });
           
@@ -242,13 +245,11 @@ const Spotify = () => {
         });
 
         if(response.status != 200) return;
-        if(typeof response.data == "string") {
-          // @ts-expect-error should never be type string unless odd case
-          const msg = JSON.parse(response.data.replace("null",""));
+        if(response.data.message) {
           setSpotifyData((curData) => {
             return {
               ...curData,
-              recentlyPlayed: msg.message
+              recentlyPlayed: response.data.message || recentSongError
             }
           });
           return;
@@ -276,20 +277,18 @@ const Spotify = () => {
             setSpotifyData((curData)=>{
               return {
                 ...curData,
-                recentlyPlayed: "There was an issue collecting my recently played song from Spotify. Feel free to message me to let me know and I'll see if I can fix it."
+                recentlyPlayed: recentSongError
               }
             })
             return error;
           });
           
           if(response.status != 200) return;
-          if(typeof response.data == "string") {
-            // @ts-expect-error should never be type string unless odd case
-            const msg = JSON.parse(response.data.replace("null",""));
+          if(response.data.message) {
             setSpotifyData((curData) => {
               return {
                 ...curData,
-                recentlyPlayed: msg.message
+                recentlyPlayed: response.data.message || recentSongError
               }
             });
             return;
