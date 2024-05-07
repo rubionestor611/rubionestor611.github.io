@@ -9,6 +9,7 @@ import 'swiper/css';
 import 'swiper/css/autoplay';
 import { Autoplay } from "swiper/modules";
 import SpotifyCurrent from "../components/SpotifyCurrent";
+import "./Spotify.css";
 
 const currentSongError = "There was an issue collecting my currently playing song from Spotify. Feel free to message me to let me know and I'll see if I can fix it.";
 const profileError = "There was an issue collecting my Spotify information. Feel free to message me to let me know and I'll see if I can fix it.";
@@ -25,6 +26,7 @@ const Spotify = () => {
     topTracks: "",
     recentlyPlayed: ""
   });
+  const [loading, setLoading] = useState(false);
 
   const fetchProfile = async (): Promise<void> => {
     try {
@@ -184,6 +186,7 @@ const Spotify = () => {
           ...old,
           current: {...response.data, expiresAt: expiration}
         }));
+        setLoading(false);
       } else {
         const currentSongData: CurrentTrack = JSON.parse(cachedCurrentSong);
         const expiresAt: number = currentSongData.expiresAt || 0;
@@ -222,6 +225,7 @@ const Spotify = () => {
             ...old,
             current: {...response.data, expiresAt: newExpiration}
           }));
+          setLoading(false);
         }
       }
     } catch (error) {
@@ -303,10 +307,14 @@ const Spotify = () => {
       }
     } catch (error) {
       console.error('Error fetching recently played song on Spotify:', error);
+    } finally {
+      setLoading(false);
     }
   }
 
   useEffect(() => {
+    setLoading(true);
+
     fetchProfile();
     fetchTopTracks();
     fetchCurrentSong();
@@ -317,16 +325,41 @@ const Spotify = () => {
       // error set, fetch recentlyPlayed
       fetchRecentSong();
     }
-  },[spotifyData.current])
-  
-  if(typeof spotifyData.current == "string" && typeof spotifyData.profile == "string" && typeof spotifyData.topTracks == "string" && typeof spotifyData.recentlyPlayed == "string") {
+  },[spotifyData.current]);
+
+  const renderBody = () => {
+    if(typeof spotifyData.current == "string" && typeof spotifyData.profile == "string" && typeof spotifyData.topTracks == "string" && typeof spotifyData.recentlyPlayed == "string") {
+      return ( <p className="self-center text-lightText dark:text-darkText text-[20px]">There was an issue connecting to my API. No issue was retrieved. Feel free to message me so that I can figure out what is going wrong and to see if I can find how to fix it.</p> )
+    }
+
     return (
-      <div id="spotify" className={`section ${isDarkMode ? 'dark' : ''} scroll-mt-[90px]`}>
-        <div className="bg-lightBG2 dark:bg-darkBG2 flex flex-col justify-center py-[24px] text-darkText">
-          <p className="self-center text-lightText dark:text-darkText text-[24px] mb-[24px] font-bold">My Live Spotify Breakdown</p>
-          <p className="self-center text-lightText dark:text-darkText text-[20px]">There was an issue connecting to my API. No issue was retrieved. Feel free to message me so that I can figure out what is going wrong and to see if I can find how to fix it.</p>
-        </div>
-      </div>
+      <>
+        <SpotifyCurrent current={spotifyData.current} profile={spotifyData.profile} recent={spotifyData.recentlyPlayed}/>
+
+        {
+        typeof spotifyData.topTracks != "string" ?
+        <>
+          <p className="self-center text-lightText dark:text-darkText text-[20px] mb-[24px] font-bold">Top 20 Tracks Recently</p>
+          <Swiper
+            slidesPerView={"auto"}
+            spaceBetween={20}
+            className="w-full px-4 active:cursor-pointer"
+            autoplay={{delay: 3000}}
+            modules={[Autoplay]}
+            loop={true}
+          >
+            {
+              spotifyData.topTracks.items?.map((track, index) => (
+                <SwiperSlide className="flex flex-col justify-center items-center w-auto" key={index.toString()}>
+                  <SpotifyTopTrackCard track={track} index={index + 1} />
+                </SwiperSlide>
+              ))
+            }
+          </Swiper>
+        </>
+        : <p>{spotifyData.topTracks}</p>
+        }
+      </>
     )
   }
   
@@ -334,32 +367,7 @@ const Spotify = () => {
     <div id="spotify" className={`section ${isDarkMode ? 'dark' : ''} scroll-mt-[90px]`}>
       <div className="bg-lightBG2 dark:bg-darkBG2 flex flex-col justify-center py-[24px] text-darkText">
         <p className="self-center text-lightText dark:text-darkText text-[24px] mb-[24px] font-bold">My Live Spotify Breakdown</p>
-        
-        <SpotifyCurrent current={spotifyData.current} profile={spotifyData.profile} recent={spotifyData.recentlyPlayed}/>
-
-        {
-          typeof spotifyData.topTracks != "string" ?
-          <>
-            <p className="self-center text-lightText dark:text-darkText text-[20px] mb-[24px] font-bold">Top 20 Tracks Recently</p>
-            <Swiper
-              slidesPerView={"auto"}
-              spaceBetween={20}
-              className="w-full px-4 active:cursor-pointer"
-              autoplay={{delay: 3000}}
-              modules={[Autoplay]}
-              loop={true}
-            >
-              {
-                spotifyData.topTracks.items?.map((track, index) => (
-                  <SwiperSlide className="flex flex-col justify-center items-center w-auto" key={index.toString()}>
-                    <SpotifyTopTrackCard track={track} index={index + 1} />
-                  </SwiperSlide>
-                ))
-              }
-            </Swiper>
-          </>
-          : <p>{spotifyData.topTracks}</p>
-        }
+        {loading ? <div className="loader"/> : renderBody()}
       </div> 
     </div>
   )

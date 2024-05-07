@@ -1,0 +1,11 @@
+/* HTML: <div class="loader"></div> */
+.loader {
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid #0F182E;
+    border-right-color: #1DB954;
+    animation: l2 1s infinite linear;
+    align-self: center;
+  }
+  @keyframes l2 {to{transform: rotate(1turn)}}
