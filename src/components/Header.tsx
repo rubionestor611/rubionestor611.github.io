@@ -94,7 +94,6 @@ const Header = () => {
                 <li key={`${index}`}><a href={titleLink[1]} className={`cursor-pointer text-lightText dark:text-darkText ${activeClass(titleLink[1])}`}>{titleLink[0]}</a></li>
               ))
             }
-            <li><a href="https://firstgencs.com" target="_blank" className="bg-primary py-1 px-3 rounded-full text-lightBG1 dark:text-darkBG1 cursor-pointer font-bold">Blog</a></li>
           </ul>
         </nav>
       </div>
@@ -105,7 +104,6 @@ const Header = () => {
             <li key={`${index}`}><a href={titleLink[1]} className="cursor-pointer text-2xl text-lightText dark:text-darkText" onClick={toggleMenu}>{titleLink[0]}</a></li>
           ))
         }
-        <li><a href="https://firstgencs.com" target="_blank" className="cursor-pointer text-2xl text-lightText dark:text-darkText">Blog</a></li>
         </ul>
       </nav>
     </header>

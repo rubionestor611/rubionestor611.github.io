@@ -19,7 +19,6 @@ const Footer = () => {
               <li key={`${index}`}><a href={titleLink[1]} className="text-lightText dark:text-darkText mx-2 cursor-pointer">{titleLink[0]}</a></li>
             ))
           }
-          <li><a href="https://firstgencs.com" target="_blank" className="text-lightText dark:text-darkText mx-2 cursor-pointer">Blog</a></li>
         </ul>
         {/* HYPERLINKS */}
         <div className="flex flex-row justify-center space-x-20 text-[30px]">

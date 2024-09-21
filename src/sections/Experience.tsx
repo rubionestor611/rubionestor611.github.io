@@ -50,7 +50,10 @@ const ExpItem = (
         <div className="absolute h-full border-l border-lightText dark:border-darkText rounded"/>
         {/* text content */}
         <div className="flex flex-col md:flex-row md:gap-4">
-          <div className="w-[300px]">
+          <div className="bg-white w-[50px] min-w-[50px] h-[50px] md:w-[100px] md:min-w-[100px] md:h-[100px] p-1 mb-2 md:mb-0">
+            <img src={exp.logo} className="w-full h-full"/>
+          </div>
+          <div className="w-[300px] md:min-w-[300px]">
             <p className="text-xs text-lightText dark:text-darkText italic">{exp.dateRange}</p>
             <p className="text-xl text-lightText dark:text-darkText font-bold">{exp.title}</p>
             <p className="text-sm text-lightText dark:text-darkText italic">{exp.company}</p>

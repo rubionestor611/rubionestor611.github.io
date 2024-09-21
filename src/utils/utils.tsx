@@ -3,6 +3,7 @@ import PythonLogo from "../assets/tech/python.svg";
 import CLogo from "../assets/tech/c.svg";
 import JavaLogo from "../assets/tech/java.svg";
 import JavaScriptLogo from "../assets/tech/js.svg";
+import OneEthosLogo from "../assets/exp/OneEthos.webp"
 import WorldLogo from "../assets/exp/worldwide.png";
 import UCFLogo from "../assets/exp/ucf.png";
 import QualtricsLogo from "../assets/exp/qualtrics.png";
@@ -40,7 +41,7 @@ import TodoImage from "../assets/projects/todo.png";
 import ResumeImage from "../assets/projects/AzureResume.png";
 import WorkoutPlannerImage from "../assets/projects/WorkoutPlannerImage.png";
 
-import { faDumbbell, faGraduationCap, faMousePointer, faSmileBeam } from "@fortawesome/free-solid-svg-icons";
+import { faDumbbell, faGraduationCap, faSmileBeam, faMusic} from "@fortawesome/free-solid-svg-icons";
 import { SpotifyProfile } from "./types";
 import axios from "axios";
 
@@ -106,8 +107,8 @@ export const aboutMe = {
       text: "I live to help and learn. I found the best outlet for my helping as a tutor at my university where I helped many students with a veriety of CS topics. In all my positions, I am always seeking to teach and learn from others."
     },
     {
-      logo: faMousePointer,
-      text: "I run a blog called First Gen CS in which I write about different topics like data structures and algorithms and I hope to extend it to miscellaneous topics in the future. You can visit it through the links in the menu and footer."
+      logo: faMusic,
+      text: "I could spend every second of my day listening to music. I love getting the chance to listen to new artists and build up my library of artists I love."
     }
   ],
 }
@@ -115,10 +116,21 @@ export const aboutMe = {
 export const experiences = [
   {
     title: "Software Engineer",
+    company: "OneEthos",
+    location: "St Petersburg, FL (Remote)",
+    logo: OneEthosLogo,
+    dateRange: "June 2024 - Present",
+    description: [
+      "Currently leading full-stack development of an unreleased project, meant to help users see the social and environmental impact of the dollars they spend at various companies"
+    ],
+    techUsed: ["React", "React Native", "Expo", "Express", "Typescript", "MongoDB", "Git", "Jira"]
+  },
+  {
+    title: "Software Engineer",
     company:"Worldwide Interactive Services",
     location: "Orlando, FL",
     logo: WorldLogo,
-    dateRange: "July 2023 - Present",
+    dateRange: "July 2023 - June 2024",
     description: [
       "Drive the development and enhancement of Milly's web and mobile applications by leveraging extensive expertise in React and React Native, while also crafting compelling demo products showcased to potential clients",
       "Lead Git version control management and actively mentor colleagues on diverse aspects of project execution and technology",
